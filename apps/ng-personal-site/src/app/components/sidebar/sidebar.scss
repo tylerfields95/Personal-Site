@@ -1,0 +1,29 @@
+/* Cohesive with Tailwind durations on the aside/header */
+.fade-slide-in {
+  animation: fade-slide-in-kf 150ms ease-in both;
+}
+.fade-slide-out {
+  animation: fade-slide-out-kf 150ms ease-out both;
+}
+
+@keyframes fade-slide-in-kf {
+  from {
+    opacity: 0;
+    // transform: translateX(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    // transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fade-slide-out-kf {
+  from {
+    opacity: 1;
+    // transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    // transform: translateX(-8px) scale(0.98);
+  }
+}
