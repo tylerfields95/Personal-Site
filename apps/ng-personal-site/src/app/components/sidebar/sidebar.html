@@ -5,14 +5,18 @@
   @if (isExpanded()) {
   <div class="flex items-center justify-between w-full h-16 px-2 border-b border-neutral-700">
     <button
-      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
+      class="group flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
       (click)="goHome()"
     >
-      <i class="fa-solid fa-home text-2xl text-neutral-400"></i>
+      @if (!isHomeIconHovered()) {
+      <i class="fa-solid fa-atom text-2xl text-neutral-400"></i>
+      } @else {
+      <i class="fa-solid fa-house-chimney text-2xl text-neutral-400"></i>
+      }
     </button>
 
     <button
-      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-col-resize"
+      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
       (click)="toggleSidebar()"
     >
       <i class="fa-solid fa-angles-left text-2xl text-neutral-400"></i>
@@ -22,19 +26,27 @@
   <!-- Collapsed: animate the single button in/out -->
   <div class="w-full h-16 flex items-center justify-center">
     <button
-      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-col-resize"
+      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
       (click)="toggleSidebar()"
+      (mouseenter)="onEnterHomeIcon()"
+      (mouseleave)="onLeaveHomeIcon()"
     >
+      @if (isHomeIconHovered()) {
+      <i class="fa-solid fa-angles-right text-2xl text-neutral-400"></i>
+      } @else {
       <i class="fa-solid fa-bars text-2xl text-neutral-400"></i>
+      }
     </button>
   </div>
-  } @if (isExpanded()) {
-  <!-- Secondary area: also animate -->
+  } @if (isExpanded()) { @for (r of routes(); track r.path) {
   <div
     class="w-full flex justify-center bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:cursor-pointer text-xl py-2"
-    (click)="goToSecondPage()"
+    (click)="navigateToPath(r?.path)"
   >
-    Second Page
+    {{ r?.data?.['label'] }}
   </div>
+  }
+  <!-- Secondary area: also animate -->
+
   }
 </aside>

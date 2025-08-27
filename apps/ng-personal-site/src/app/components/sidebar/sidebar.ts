@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, computed, Signal, signal } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,14 +10,21 @@ import { Router } from '@angular/router';
 })
 export class Sidebar {
   readonly isExpanded = signal(false);
+  readonly isHomeIconHovered = signal(false);
   readonly widthClass = computed(() => (this.isExpanded() ? 'w-64' : 'w-16'));
   readonly justificationClass = computed(() =>
     this.isExpanded() ? 'justify-between' : 'justify-center'
   );
 
-  constructor(private router: Router) {}
+  public routes: Signal<Routes>;
+
+  constructor(private router: Router) {
+    this.routes = signal(this.router.config);
+    console.log(this.router.config);
+  }
 
   toggleSidebar(): void {
+    this.onLeaveHomeIcon();
     this.isExpanded.update((v) => !v);
   }
 
@@ -25,7 +32,15 @@ export class Sidebar {
     this.router.navigate(['/']);
   }
 
-  goToSecondPage(): void {
-    this.router.navigate(['/second']);
+  navigateToPath(path?: string): void {
+    this.router.navigate([`/${path}`]);
+  }
+
+  onEnterHomeIcon(): void {
+    this.isHomeIconHovered.set(true);
+  }
+
+  onLeaveHomeIcon(): void {
+    this.isHomeIconHovered.set(false);
   }
 }

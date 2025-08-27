@@ -1,12 +1,15 @@
 <!-- app.component.html -->
 <div class="flex h-screen">
   <!-- Left sidebar -->
+  @if(viewportService.isLandscape()){
   <app-sidebar></app-sidebar>
+  }
 
   <!-- Right pane -->
   <main class="flex-1 h-full flex flex-col">
-    <!-- Header on top -->
-    <!-- <app-header></app-header> -->
+    @if(!viewportService.isLandscape()){
+    <app-header></app-header>
+    }
 
     <!-- Fills remaining height and width -->
     <div class="flex-1 overflow-auto">
