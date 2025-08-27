@@ -1,35 +1,40 @@
 <aside
-  class="flex flex-col h-full bg-neutral-700 transition-all duration-150 delay-100 ease-in-out"
+  class="flex flex-col h-full bg-neutral-800 transition-all duration-150 delay-100 ease-in-out border-r border-neutral-700"
   [ngClass]="widthClass()"
 >
   @if (isExpanded()) {
-  <div class="flex items-center justify-between w-full px-1">
+  <div class="flex items-center justify-between w-full h-16 px-2 border-b border-neutral-700">
     <button
-      class="flex justify-center items-center h-12 w-12 p-1 rounded-sm bg-neutral-700"
+      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
       (click)="goHome()"
     >
-      <i class="fa-solid fa-home text-4xl text-neutral-400"></i>
+      <i class="fa-solid fa-home text-2xl text-neutral-400"></i>
     </button>
 
     <button
-      class="flex justify-center items-center h-12 w-12 p-1 rounded-sm bg-neutral-700"
+      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-col-resize"
       (click)="toggleSidebar()"
     >
-      <i class="fa-solid fa-arrow-left text-4xl text-neutral-400"></i>
+      <i class="fa-solid fa-angles-left text-2xl text-neutral-400"></i>
     </button>
   </div>
   } @else {
   <!-- Collapsed: animate the single button in/out -->
   <div class="w-full h-16 flex items-center justify-center">
     <button
-      class="flex justify-center items-center h-12 w-12 p-1 rounded-sm bg-neutral-700"
+      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-col-resize"
       (click)="toggleSidebar()"
     >
-      <i class="fa-solid fa-bars text-4xl text-neutral-400"></i>
+      <i class="fa-solid fa-bars text-2xl text-neutral-400"></i>
     </button>
   </div>
   } @if (isExpanded()) {
   <!-- Secondary area: also animate -->
-  <div class="w-full flex justify-center bg-pink-800" (click)="goToSecondPage()">Second Page</div>
+  <div
+    class="w-full flex justify-center bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:cursor-pointer text-xl py-2"
+    (click)="goToSecondPage()"
+  >
+    Second Page
+  </div>
   }
 </aside>
