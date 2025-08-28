@@ -1,3 +1,19 @@
-<header class="w-full h-16 bg-neutral-800">
-  <i class="fas fa-user"></i> <i class="fa-solid fa-gear"></i>
+<header
+  class="w-full bg-neutral-800 flex flex-row justify-center transition-all duration-150 delay-100 ease-in-out"
+  [ngClass]="widthClass()"
+>
+  <button
+    class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer w-full"
+    [ngClass]="isExpanded() ? 'border-t border-neutral-700' : 'h-full'"
+    (click)="toggleSidebar()"
+    (mouseenter)="onEnterHomeIcon()"
+    (mouseleave)="onLeaveHomeIcon()"
+  >
+    @if (isExpanded()){<i class="fa-solid fa-angles-up text-2xl text-neutral-400"></i>} @else if
+    (isHomeIconHovered()) {
+    <i class="fa-solid fa-angles-down text-2xl text-neutral-400"></i>
+    } @else {
+    <i class="fa-solid fa-bars text-2xl text-neutral-400"></i>
+    }
+  </button>
 </header>
