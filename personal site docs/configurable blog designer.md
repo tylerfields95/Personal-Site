@@ -39,4 +39,3 @@ export class contentBlock {
 		- [ ] body text
 		- [ ] header
 		- [ ] subheader
-		- [ ] 
