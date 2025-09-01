@@ -1,4 +1,19 @@
 <div class="w-full h-full bg-emerald-300">
-  <div #blogHeader></div>
-  <div #blogBody></div>
+  <div #blogHeader class="w-full flex flex-col items-center">
+    <div>{{ blogData().header }}</div>
+    <div>{{ blogData()?.subHeader }}</div>
+    <div class="flex flex-row">
+      <div class="mr-10">author: {{ blogData().author }}</div>
+      <div>Publish Date: {{ blogData().createdOn | date : 'mediumDate' }}</div>
+    </div>
+  </div>
+  <div #blogBody>
+    @for(item of blogData().body; track item.header) {
+    <div>{{ item?.header }}</div>
+    <div>{{ item?.subHeader }}</div>
+
+    <markdown [data]="item.body"></markdown>
+
+    }
+  </div>
 </div>

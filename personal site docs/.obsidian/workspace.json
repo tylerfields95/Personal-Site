@@ -11,10 +11,14 @@
             "id": "2d25ea67fe5a72ed",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "configurable blog designer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "configurable blog designer"
             }
           }
         ]
@@ -169,11 +173,11 @@
   },
   "active": "2d25ea67fe5a72ed",
   "lastOpenFiles": [
+    "Write about me text.md",
     "Untitled.canvas",
     "_All Tasks.md",
     "configurable blog designer.md",
     "Kanban.md",
-    "Write about me text.md",
     "Testing.md",
     "Assets",
     "Welcome.md"

@@ -7,5 +7,5 @@ export class BlogContent {
   public lastModifiedOn?: Date;
   public author: string = '';
 
-  public body?: Blogbody;
+  public body?: Blogbody[];
 }
