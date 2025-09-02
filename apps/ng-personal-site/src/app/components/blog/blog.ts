@@ -1,5 +1,5 @@
 import { Component, signal, Signal, WritableSignal } from '@angular/core';
-import { Blogbody, BlogContent } from '../../models';
+import { Blogbody, BlogContent, blogImage, ImagePosition } from '../../models';
 import { DatePipe } from '@angular/common';
 import { MarkdownComponent } from 'ngx-markdown';
 
@@ -16,18 +16,29 @@ export class Blog {
   constructor() {}
 
   public buildFakeBlogData(): BlogContent {
-    let blog = new BlogContent();
+    const blog = new BlogContent();
     blog.header = 'This is only a Test';
     blog.subHeader = 'SubHeader Test';
     blog.createdOn = new Date();
     blog.lastModifiedOn = blog.createdOn;
     blog.author = 'Tyler Fields';
 
-    // Example list of Blogbody objects
+    const leftImages: blogImage[] = [
+      { imageName: 'left img 1', position: ImagePosition.Left },
+      { imageName: 'left img 2', position: ImagePosition.Left },
+    ];
+    const rightImages: blogImage[] = [{ imageName: 'right img 1', position: ImagePosition.Right }];
+    const bottomImages: blogImage[] = [
+      { imageName: 'bottom img 1', position: ImagePosition.Bottom },
+      { imageName: 'bottom img 2', position: ImagePosition.Bottom },
+    ];
+    const topImages: blogImage[] = [{ imageName: 'right img 1', position: ImagePosition.Right }];
+
     const blogBodies: Blogbody[] = [
-      {
+      new Blogbody({
         header: 'Introduction',
         subHeader: 'Getting started',
+        blogImages: [...leftImages, ...bottomImages],
         body: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
@@ -37,8 +48,8 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
 
 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.`,
-      },
-      {
+      }),
+      new Blogbody({
         header: 'Main Topic',
         subHeader: 'Deep dive',
         body: `**feature overview**
@@ -46,16 +57,30 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
 * configurable header text
 * body text region
 * ability to insert content into the body text in user defined locations`,
-      },
-      {
+      }),
+      new Blogbody({
         header: 'Conclusion',
         subHeader: 'Wrapping up',
-        body: 'This is the summary and closing thoughts.',
-      },
+        body: `\`\`\`
+export class pageContent {
+  Header: string = '';
+  subHeader: string;
+  postDate: Date;
+  updateDate: Date;
+  author: user = null;
+  bodyContent: contentBlock[];
+}
+
+export class contentBlock {
+  Header: string;
+  subHeader: string;
+  body: string;
+}
+\`\`\``,
+      }),
     ];
 
     blog.body = blogBodies;
-
     return blog;
   }
 }
