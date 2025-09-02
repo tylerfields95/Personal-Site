@@ -1,1 +1,7 @@
 @use "tailwindcss" as *;
+@plugin "@tailwindcss/typography";
+
+/* Override list marker color */
+.prose ul > li::marker {
+  color: theme("colors.black"); /* or "currentColor" */
+}
