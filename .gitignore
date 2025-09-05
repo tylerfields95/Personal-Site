@@ -4,3 +4,5 @@ dist/
 .angular/
 .nx/
 *.log
+.vs
+infra/.env
