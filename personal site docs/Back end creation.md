@@ -15,12 +15,13 @@ The back end thus far is a solution with a single project, "PersonalSiteApi". th
 
 
 **Tasks**
-- [ ] Create Blog object
-	- [ ] give the blog object a FK relationship to blog Content in a one to many fashion
-- [ ] Create BlogContent Object
-- [ ] Create DbContext
-	- [ ] register Blog ObjectModel 
-	- [ ] register BlogContent objectModel
-- [ ] Run migration against PersonalSiteDB in docker container
-- [ ] Populate Db with test data from the client (no images for now)
+- [x] Create Blog object ✅ 2025-09-06
+	- [x] give the blog object a FK relationship to blog Content in a one to many fashion ✅ 2025-09-06
+- [x] Create BlogContent Object ✅ 2025-09-06
+- [x] Create DbContext ✅ 2025-09-06
+	- [x] register Blog ObjectModel ✅ 2025-09-06
+	- [x] register BlogContent objectModel ✅ 2025-09-06
+- [x] Run migration against PersonalSiteDB in docker container ✅ 2025-09-06
+- [x] Populate Db with test data from the client (no images for now) ✅ 2025-09-06\
+- [ ] update client models to match back end
 - [ ] connect the front end to the back end
