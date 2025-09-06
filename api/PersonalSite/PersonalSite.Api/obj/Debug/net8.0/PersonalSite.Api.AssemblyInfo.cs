@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PersonalSite.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ca64bdf27f3af323ea6298b69a3533328afc8a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+add46a8d9d3604fafaf83613b9bc2be61b7fd578")]
 [assembly: System.Reflection.AssemblyProductAttribute("PersonalSite.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PersonalSite.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
