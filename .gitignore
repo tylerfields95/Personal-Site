@@ -4,3 +4,7 @@ dist/
 .angular/
 .nx/
 *.log
+.vs
+infra/.env
+bin/
+obj/
