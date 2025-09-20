@@ -22,7 +22,6 @@ export class Sidebar {
 
   constructor(private router: Router) {
     this.routes = signal(this.router.config);
-    console.log(this.router.config);
   }
 
   toggleSidebar(): void {

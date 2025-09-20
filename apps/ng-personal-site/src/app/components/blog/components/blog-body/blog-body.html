@@ -1,0 +1,41 @@
+<div #blogBody>
+  @for(item of blogData()?.body; track item.header) {
+  <hr class="my-2 text-theme-tertiary" />
+  <div class="text-xl md:text-2xl font-semibold text-theme-primary-text">{{ item?.header }}</div>
+  <div class="text-base md:text-xl pb-2 font-medium italic text-theme-secondary-text">
+    {{ item?.subHeader }}
+  </div>
+
+  <div class="">
+    <!-- Images can float to the left or the right of the markedown content -->
+    @if(item?.rightAlignedImages?.length){
+    <div class="float-right ml-12">
+      @for(img of item?.rightAlignedImages; track img?.imageName){
+      <div class="w-24 h-24 md:w-64 md:h-64 bg-theme-tertiary mb-2"></div>
+      }
+    </div>
+    } @if(item?.leftAlignedImages?.length){
+    <div class="float-left mr-12">
+      @for(img of item?.leftAlignedImages; track img?.imageName){
+      <div class="w-24 h-24 md:w-64 md:h-64 bg-theme-tertiary mb-2"></div>
+      }
+    </div>
+    }
+
+    <!-- ngx-markdown used as the markdown renderer, styled by the tailwindCss typography plugin -->
+    <markdown
+      class="prose prose-theme max-w-none text-base md:text-2xl text-theme-primary-text"
+      [data]="item.body"
+    ></markdown>
+
+    <!-- optionally, large images can be added below a section (or as the primary content of a section) -->
+    @if(item?.bottomimages?.length){
+    <div class="mt-4 w-full flex flex-col items-center">
+      @for(img of item?.bottomimages; track img?.imageName){
+      <div class="w-full h-24 md:w-full md:h-64 bg-theme-tertiary mb-2"></div>
+      }
+    </div>
+    }
+  </div>
+  }
+</div>
