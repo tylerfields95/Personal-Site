@@ -5,3 +5,106 @@
 .prose ul > li::marker {
   color: theme("colors.black"); /* or "currentColor" */
 }
+
+@layer utilities {
+  .prose-theme {
+    /* normal */
+    --tw-prose-body: var(--primary-text);
+    --tw-prose-headings: var(--primary-text);
+    --tw-prose-lead: var(--secondary-text);
+    --tw-prose-links: var(--accent);
+    --tw-prose-bold: var(--primary-text);
+    --tw-prose-counters: var(--secondary-text);
+    --tw-prose-bullets: var(--primary-text);
+    --tw-prose-hr: var(--primary-text);
+    --tw-prose-quotes: var(--primary-text);
+    --tw-prose-quote-borders: var(--primary-text);
+    --tw-prose-captions: var(--secondary-text);
+    --tw-prose-code: var(--accent);
+    --tw-prose-pre-code: var(--accent-inverted);
+    --tw-prose-pre-bg: var(--primary-text);
+    --tw-prose-th-borders: var(--primary-text);
+    --tw-prose-td-borders: var(--primary-text);
+
+    /* invert set (used by .prose-invert) */
+    --tw-prose-invert-body: var(--primary-text);
+    --tw-prose-invert-headings: var(--primary-text);
+    --tw-prose-invert-lead: var(--secondary-text);
+    --tw-prose-invert-links: var(--accent);
+    --tw-prose-invert-bold: var(--primary-text);
+    --tw-prose-invert-counters: var(--secondary-text);
+    --tw-prose-invert-bullets: var(--secondary-text);
+    --tw-prose-invert-hr: var(--primary-text);
+    --tw-prose-invert-quotes: var(--primary-text);
+    --tw-prose-invert-quote-borders: var(--primary-text);
+    --tw-prose-invert-captions: var(--secondary-text);
+    --tw-prose-invert-code: var(--accent);
+    --tw-prose-invert-pre-code: var(--accent-inverted);
+    --tw-prose-invert-pre-bg: var(--primary-text);
+    --tw-prose-invert-th-borders: var(--primary-text);
+    --tw-prose-invert-td-borders: var(--primary-text);
+  }
+}
+
+/* Tailwind v4 tokens: utilities like bg-*, text-*, border-* read these */
+@layer base {
+  :root {
+    --primary-color: black;
+    --secondary-color: rgb(42, 42, 42);
+    --tertiary-color: rgb(85, 85, 85);
+    --quaternary-color: rgb(110, 110, 110);
+    --quinary-color: rgb(110, 110, 110);
+
+    --primary-text: theme("colors.zinc.100");
+    --secondary-text: theme("colors.zinc.100");
+
+    --accent: rgb(107, 26, 116);
+    --accent-muded: rgb(168, 72, 178);
+    --accent-inverted: rgb(255, 255, 255);
+  }
+
+  .light  {
+    --primary-color: white;
+    --secondary-color: rgb(241, 241, 241);
+    --tertiary-color: rgb(224, 224, 224);
+    --quaternary-color: rgb(179, 179, 179);
+    --quinary-color: rgb(136, 136, 136);
+    
+    --primary-text: black;
+    --secondary-text: theme("colors.zinc.700");;
+
+    --accent: rgb(107, 26, 116);
+    --accent-muded: rgb(168, 72, 178);
+    --accent-inverted: rgb(255, 255, 255);
+  }
+
+  .dark{
+    --primary-color: theme("colors.zinc.950");
+    --secondary-color: theme("colors.zinc.900");
+    --tertiary-color: theme("colors.zinc.700");
+    --quaternary-color: theme("colors.zinc.600");
+    --quinary-color: theme("colors.zinc.500");
+
+    --primary-text: theme("colors.zinc.100");
+    --secondary-text: theme("colors.zinc.300");
+    
+    --accent: rgb(107, 26, 116);
+    --accent-muded: rgb(168, 72, 178);
+    --accent-inverted: rgb(255, 255, 255);
+  }
+}
+
+@theme inline{
+  --color-theme-primary: var(--primary-color);
+  --color-theme-secondary: var(--secondary-color);
+  --color-theme-tertiary: var(--tertiary-color);
+  --color-theme-quaternary: var(--primary-text);
+  --color-theme-quinary: var(--quinary-color);
+
+  --color-theme-primary-text: var(--primary-text);
+  --color-theme-secondary-text: var(--secondary-text);
+
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muded);
+  --color-theme-inverted: var(--accent-inverted);
+}

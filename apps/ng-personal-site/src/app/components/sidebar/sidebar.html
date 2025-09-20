@@ -1,49 +1,44 @@
 <aside
-  class="flex flex-col h-full bg-neutral-800 transition-all duration-150 delay-100 ease-in-out border-r border-neutral-700"
+  class="flex flex-col justify-between h-full bg-theme-primary transition-all duration-150 delay-100 ease-in-out border-r border-theme-tertiary"
   [ngClass]="widthClass()"
 >
-  @if (isExpanded()) {
-  <div class="flex items-center justify-between w-full h-16 px-2 border-b border-neutral-700">
-    <button
-      class="group flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
-      (click)="goHome()"
-    >
-      @if (!isHomeIconHovered()) {
-      <i class="fa-solid fa-atom text-2xl text-neutral-400"></i>
-      } @else {
-      <i class="fa-solid fa-house-chimney text-2xl text-neutral-400"></i>
-      }
-    </button>
+  <div>
+    @if (isExpanded()) {
+    <div class="flex items-center justify-between w-full h-16 px-2 border-b border-theme-tertiary">
+      <button
+        class="group flex justify-center items-center p-2 rounded-sm bg-theme-primary hover:bg-theme-secondary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        (click)="goHome()"
+        (mouseenter)="onEnterHomeIcon()"
+        (mouseleave)="onLeaveHomeIcon()"
+      >
+        <i
+          class="text-2xl fa-solid"
+          [ngClass]="isHomeIconHovered() ? 'fa-house-chimney' : 'fa-atom'"
+        ></i>
+      </button>
 
-    <button
-      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
-      (click)="toggleSidebar()"
-    >
-      <i class="fa-solid fa-angles-left text-2xl text-neutral-400"></i>
-    </button>
+      <button
+        class="flex justify-center items-center p-2 rounded-sm bg-theme-primary hover:bg-theme-secondary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        (click)="toggleSidebar()"
+      >
+        <i class="fa-solid fa-angles-left text-2xl"></i>
+      </button>
+    </div>
+    } @else {
+    <div class="w-full h-16 flex items-center justify-center">
+      <button
+        class="flex justify-center items-center p-2 rounded-sm bg-theme-primary hover:bg-theme-secondary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        (click)="toggleSidebar()"
+        (mouseenter)="onEnterHomeIcon()"
+        (mouseleave)="onLeaveHomeIcon()"
+      >
+        <i
+          class="text-2xl fa-solid"
+          [ngClass]="isHomeIconHovered() ? 'fa-angles-right' : 'fa-bars'"
+        ></i>
+      </button>
+    </div>
+    } @if (isExpanded()) { <app-nav-list></app-nav-list>}
   </div>
-  } @else {
-  <!-- Collapsed: animate the single button in/out -->
-  <div class="w-full h-16 flex items-center justify-center">
-    <button
-      class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer"
-      (click)="toggleSidebar()"
-      (mouseenter)="onEnterHomeIcon()"
-      (mouseleave)="onLeaveHomeIcon()"
-    >
-      @if (isHomeIconHovered()) {
-      <i class="fa-solid fa-angles-right text-2xl text-neutral-400"></i>
-      } @else {
-      <i class="fa-solid fa-bars text-2xl text-neutral-400"></i>
-      }
-    </button>
-  </div>
-  } @if (isExpanded()) { @for (r of routes(); track r.path) {
-  <div
-    class="w-full flex justify-center bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:cursor-pointer text-xl py-2"
-    (click)="navigateToPath(r?.path)"
-  >
-    {{ r?.data?.['label'] }}
-  </div>
-  }}
+  @if (isExpanded()){<app-quick-contact></app-quick-contact>}
 </aside>
