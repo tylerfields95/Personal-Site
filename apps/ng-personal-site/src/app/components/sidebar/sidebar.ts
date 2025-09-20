@@ -1,10 +1,12 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, Signal, signal } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import { QuickContact } from '../quick-contact/quick-contact';
+import { NavList } from '../nav-list/nav-list';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [NgClass],
+  imports: [NgClass, QuickContact, NavList],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })

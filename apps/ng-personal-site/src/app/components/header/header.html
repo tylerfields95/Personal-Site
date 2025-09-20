@@ -1,19 +1,33 @@
 <header
-  class="w-full bg-neutral-800 flex flex-row justify-center transition-all duration-150 delay-100 ease-in-out"
+  class="w-full h-full bg-theme-primary flex flex-col justify-between"
   [ngClass]="widthClass()"
 >
-  <button
-    class="flex justify-center items-center p-2 rounded-sm bg-neutral-800 hover:bg-neutral-700 hover:cursor-pointer w-full"
-    [ngClass]="isExpanded() ? 'border-t border-neutral-700' : 'h-full'"
-    (click)="toggleSidebar()"
-    (mouseenter)="onEnterHomeIcon()"
-    (mouseleave)="onLeaveHomeIcon()"
-  >
-    @if (isExpanded()){<i class="fa-solid fa-angles-up text-2xl text-neutral-400"></i>} @else if
-    (isHomeIconHovered()) {
-    <i class="fa-solid fa-angles-down text-2xl text-neutral-400"></i>
-    } @else {
-    <i class="fa-solid fa-bars text-2xl text-neutral-400"></i>
-    }
-  </button>
+  <!-- This will stretch to fill the space -->
+  <div class="flex-1 w-full">
+    @if (isExpanded()) {<app-nav-list (navigated)="toggleHeader()"></app-nav-list>}
+  </div>
+
+  <!-- Button container stays fixed height -->
+  <div class="w-full">
+    @if(isExpanded()){<app-quick-contact></app-quick-contact>}
+
+    <button
+      class="flex justify-center items-center p-2 bg-theme-primary text-theme-primary-text hover:bg-theme-secondary hover:cursor-pointer hover:text-accent-muted w-full h-12 w-full border-theme-tertiary"
+      [ngClass]="isExpanded() ? 'border-t ' : 'border-b'"
+      (click)="toggleHeader()"
+      (mouseenter)="onEnterExpandButton()"
+      (mouseleave)="onLeaveExpandButton()"
+    >
+      <i
+        class="text-2xl"
+        [ngClass]="
+          isExpanded()
+            ? 'fa-solid fa-angles-up'
+            : isExpandIcon()
+            ? 'fa-solid fa-angles-down'
+            : 'fa-solid fa-bars'
+        "
+      ></i>
+    </button>
+  </div>
 </header>

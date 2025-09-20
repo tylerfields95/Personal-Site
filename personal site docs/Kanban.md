@@ -6,12 +6,6 @@ kanban-plugin: board
 
 ## To Do
 
-- [ ] Create Site Theme
-	#UI #Theme
-- [ ] Add Social links
-	#UI #NavBar
-- [ ] Fix Navbar Behavior
-	#UI #NavBar
 - [ ] [[Write about me text]]
 	#AboutMe
 - [ ] Host Client App
@@ -23,16 +17,27 @@ kanban-plugin: board
 - [ ] Figure out the best way to deal with images
 - [ ] Write documentation on steps taken this far
 	#Documentation
+- [ ] Clean Up blog Component
+- [ ] Set up the Home page with static Blog
+- [ ] Configure Dark theme
+- [ ] Add theme switcher
+- [ ] Fix markdown colors
 
 
 ## Active
 
+- [ ] Add Social links
+	#UI #NavBar
 - [ ] [[configurable blog designer]]
 
 
 ## Done
 
 **Complete**
+- [x] [[Fix Navbar Behavior]] ✅ 2025-09-20
+	#UI #NavBar
+- [x] Create Basic Site Theme variables ✅ 2025-09-17
+	#UI #Theme
 
 
 

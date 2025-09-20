@@ -1,28 +1,24 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, Signal, signal } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Component, computed, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { QuickContact } from '../quick-contact/quick-contact';
+import { NavList } from '../nav-list/nav-list';
 
 @Component({
   selector: 'app-header',
-  imports: [NgClass],
+  imports: [NgClass, QuickContact, NavList],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
   readonly isExpanded = signal(false);
-  readonly isHomeIconHovered = signal(false);
-  readonly widthClass = computed(() =>
-    this.isExpanded() ? 'h-64 items-end' : 'h-12 items-center'
-  );
-  public routes: Signal<Routes>;
+  readonly isExpandIcon = signal(false);
+  readonly widthClass = computed(() => (this.isExpanded() ? 'h-screen' : 'h-12 items-center'));
 
-  constructor(private router: Router) {
-    this.routes = signal(this.router.config);
-    console.log(this.router.config);
-  }
+  constructor(private router: Router) {}
 
-  toggleSidebar(): void {
-    this.onLeaveHomeIcon();
+  toggleHeader(): void {
+    this.onLeaveExpandButton();
     this.isExpanded.update((v) => !v);
   }
 
@@ -30,15 +26,11 @@ export class Header {
     this.router.navigate(['/']);
   }
 
-  navigateToPath(path?: string): void {
-    this.router.navigate([`/${path}`]);
+  onEnterExpandButton(): void {
+    this.isExpandIcon.set(true);
   }
 
-  onEnterHomeIcon(): void {
-    this.isHomeIconHovered.set(true);
-  }
-
-  onLeaveHomeIcon(): void {
-    this.isHomeIconHovered.set(false);
+  onLeaveExpandButton(): void {
+    this.isExpandIcon.set(false);
   }
 }
