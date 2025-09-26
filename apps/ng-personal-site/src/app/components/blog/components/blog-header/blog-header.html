@@ -1,16 +1,20 @@
-<div #blogHeader class="w-full flex flex-row justify-between items center">
-  <div class="w-16 h-16 md:w-32 md:h-32"></div>
-  <div class="flex flex-col items-center">
-    <div class="text-2xl md:text-5xl pb-2 font-bold text-theme-primary-text">
-      {{ blogData()?.header }}
-    </div>
-    <div class="text-xl md:text-2xl pb-2 text-theme-secondary-text">
-      {{ blogData()?.subHeader }}
-    </div>
-    <div class="flex flex-row text-theme-secondary-text text-xs md:text-sm">
-      <div class="mr-10">author: {{ blogData()?.author }}</div>
-      <div>Publish Date: {{ blogData()?.createdOn | date : 'mediumDate' }}</div>
-    </div>
+<div #blogHeader class="w-full flex flex-col items-center items center pb-4">
+  <!-- optionally, large images can be added below a section (or as the primary content of a section) -->
+  @if(blogData()?.headerTopImages?.length){
+  <div class="w-full flex flex-col items-center">
+    @for(img of blogData()?.headerTopImages; track img?.imageName){
+    <img [src]="img.imageSrc" class="h-32 w-32 md:15 md:16" alt="portrait" />
+    }
   </div>
-  <div class="w-16 h-16 md:w-32 md:h-32"></div>
+  }
+  <div class="text-2xl md:text-5xl pb-2 font-bold text-theme-primary-text">
+    {{ blogData()?.header }}
+  </div>
+  <div class="text-xl md:text-2xl pb-2 text-theme-secondary-text">
+    {{ blogData()?.subHeader }}
+  </div>
+  <div class="flex flex-row text-theme-secondary-text text-xs md:text-sm">
+    <div class="mr-10">author: {{ blogData()?.author }}</div>
+    <div>Publish Date: {{ blogData()?.createdOn | date : 'mediumDate' }}</div>
+  </div>
 </div>

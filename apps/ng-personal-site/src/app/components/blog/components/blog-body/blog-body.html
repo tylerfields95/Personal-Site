@@ -6,18 +6,34 @@
     {{ item?.subHeader }}
   </div>
 
+  <!-- optionally, large images can be added below a section (or as the primary content of a section) -->
+  @if(item?.topimages?.length){
+  <div class="w-full flex flex-col items-center">
+    @for(img of item?.topimages; track img?.imageName){
+    <img [src]="img.imageSrc" class="h-32 w-32" alt="portrait" />
+    }
+  </div>
+  }
+
   <div class="">
     <!-- Images can float to the left or the right of the markedown content -->
     @if(item?.rightAlignedImages?.length){
-    <div class="float-right ml-12">
+    <div class="float-right ml-4">
       @for(img of item?.rightAlignedImages; track img?.imageName){
-      <div class="w-24 h-24 md:w-64 md:h-64 bg-theme-tertiary mb-2"></div>
+      <img [src]="img.imageSrc" class="h-32 w-32 md:h-64 md:w-64" alt="" />
+
+      <!-- <div class="w-24 h-24 md:w-64 md:h-64 bg-theme-tertiary mb-2"></div> -->
       }
     </div>
     } @if(item?.leftAlignedImages?.length){
-    <div class="float-left mr-12">
+    <div class="float-left mr-4">
       @for(img of item?.leftAlignedImages; track img?.imageName){
-      <div class="w-24 h-24 md:w-64 md:h-64 bg-theme-tertiary mb-2"></div>
+      <img
+        [src]="img.imageSrc"
+        class="h-32 w-32 md:h-64 md:w-64 rounded-full object-cover"
+        alt=""
+      />
+      <!-- <div class="w-24 h-24 md:w-64 md:h-64 bg-theme-tertiary mb-2"></div> -->
       }
     </div>
     }

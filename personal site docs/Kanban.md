@@ -15,20 +15,25 @@ kanban-plugin: board
 - [ ] Host Prod Database
 	#DB #infrastructure
 - [ ] Figure out the best way to deal with images
+	#infrastructure
 - [ ] Write documentation on steps taken this far
 	#Documentation
-- [ ] Clean Up blog Component
-- [ ] Set up the Home page with static Blog
-- [ ] Configure Dark theme
-- [ ] Add theme switcher
 - [ ] Fix markdown colors
+	#UI
 
 
 ## Active
 
+- [ ] Set up the Home page with static Blog
+- [ ] Add Full Contact Page
 - [ ] Add Social links
 	#UI #NavBar
-- [ ] [[configurable blog designer]]
+- [ ] Style Scroll Bars
+	#UI
+- [ ] Configure Dark theme
+	#UI
+- [ ] Add theme switcher
+	#UI
 
 
 ## Done
@@ -36,6 +41,9 @@ kanban-plugin: board
 **Complete**
 - [x] [[Fix Navbar Behavior]] ✅ 2025-09-20
 	#UI #NavBar
+- [x] Move current fake blog page to second Page ✅ 2025-09-25
+- [x] Clean Up blog Component ✅ 2025-09-25
+- [x] [[configurable blog designer]] ✅ 2025-09-25
 - [x] Create Basic Site Theme variables ✅ 2025-09-17
 	#UI #Theme
 

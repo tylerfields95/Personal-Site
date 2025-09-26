@@ -1,5 +1,9 @@
 @use "tailwindcss" as *;
 @plugin "@tailwindcss/typography";
+@plugin 'tailwind-scrollbar' {
+    nocompatible: true;
+    preferredStrategy: 'pseudoelements';
+}
 
 /* Override list marker color */
 .prose ul > li::marker {
@@ -43,6 +47,14 @@
     --tw-prose-invert-pre-bg: var(--primary-text);
     --tw-prose-invert-th-borders: var(--primary-text);
     --tw-prose-invert-td-borders: var(--primary-text);
+  }
+
+  .no-scrollbar-arrows::-webkit-scrollbar-button {
+    display: none;
+  }
+  .no-scrollbar-arrows {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
 }
 
@@ -98,7 +110,7 @@
   --color-theme-primary: var(--primary-color);
   --color-theme-secondary: var(--secondary-color);
   --color-theme-tertiary: var(--tertiary-color);
-  --color-theme-quaternary: var(--primary-text);
+  --color-theme-quaternary: var(--quaternary-color);
   --color-theme-quinary: var(--quinary-color);
 
   --color-theme-primary-text: var(--primary-text);
