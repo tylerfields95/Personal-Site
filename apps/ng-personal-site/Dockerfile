@@ -6,45 +6,35 @@ ARG NODE_VERSION=24.7.0-alpine
 ARG PNPM_VERSION=10.15.0
 ARG NGINX_VERSION=alpine3.22
 
-# Use a lightweight Node.js image for building (customizable via ARG)
 FROM node:${NODE_VERSION} AS builder
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Install pnpm
+# Enable pnpm
 RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
-# Copy package-related files first to leverage Docker's caching mechanism
+# Install deps with cache
 COPY package.json pnpm-lock.yaml ./
-
-# Install project dependencies using pnpm (ensures a clean, reproducible install)
 RUN --mount=type=cache,target=/root/.local/share/pnpm pnpm install --frozen-lockfile
 
-# Copy the rest of the application source code into the container
+# Copy source and build
 COPY . .
-
-# Build the Angular application
-RUN pnpm run build 
+RUN pnpm run build
 
 # =========================================
-# Stage 2: Prepare Nginx to Serve Static Files
+# Stage 2: Serve with Nginx (unprivileged)
 # =========================================
 
 FROM nginxinc/nginx-unprivileged:${NGINX_VERSION} AS runner
 
-# Use a built-in non-root user for security best practices
-USER nginx
-
-# Copy custom Nginx config
+# Nginx config must listen on 8080 and handle SPA fallback
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy the static build output from the build stage to Nginx's default HTML serving directory
-COPY --chown=nginx:nginx --from=builder /app/dist/*/browser /usr/share/nginx/html
+# Copy built app; set ownership at copy time for UID 101 (nginx-unprivileged)
+COPY --from=builder --chown=101:101 /app/dist/*/browser /usr/share/nginx/html
 
-# Expose port 8080 to allow HTTP traffic
+# Expose HTTP
 EXPOSE 8080
 
-# Start Nginx directly with custom config
-ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
-CMD ["-g", "daemon off;"]
+# Run nginx in foreground (image default user is already non-root UID 101)
+CMD ["nginx", "-g", "daemon off;"]

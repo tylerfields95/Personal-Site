@@ -4,27 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c57c63cda093dd87",
+        "id": "f5bf03d520846c69",
         "type": "tabs",
         "children": [
           {
-            "id": "ad1309a8259393df",
+            "id": "7c65d819b866608d",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Kanban.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "Documentation/AWS ECR Setup.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "Kanban"
+              "icon": "lucide-file",
+              "title": "AWS ECR Setup"
             }
           }
         ]
@@ -84,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "488bd699b37976d7",
@@ -177,11 +172,19 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "79d65c4440f4d9d8",
+  "active": "7c65d819b866608d",
   "lastOpenFiles": [
+    "Assets/Pasted image 20251006165649.png",
+    "Documentation/AWS ECR Setup.md",
+    "Documentation/AWS Setup Thoughts and Things.md",
+    "Assets/Pasted image 20251017134228.png",
+    "Assets/Pasted image 20251006165805.png",
+    "Assets/Pasted image 20251006165642.png",
+    "Assets/Pasted image 20251006165604.png",
+    "Assets/Pasted image 20251006165525.png",
+    "Kanban.md",
     "Tasks/Done",
     "Tasks/Done/Fix Navbar Behavior.md",
-    "Kanban.md",
     "Tasks/configurable blog designer.md",
     "_All Tasks.md",
     "Tasks/Write about me text.md",
