@@ -24,12 +24,7 @@ kanban-plugin: board
 
 ## Active
 
-- [ ] Set up the Home page with static Blog
 - [ ] Add Full Contact Page
-- [ ] Add Social links
-	#UI #NavBar
-- [ ] Style Scroll Bars
-	#UI
 - [ ] Configure Dark theme
 	#UI
 - [ ] Add theme switcher
@@ -41,7 +36,12 @@ kanban-plugin: board
 **Complete**
 - [x] [[Fix Navbar Behavior]] ✅ 2025-09-20
 	#UI #NavBar
+- [x] Set up the Home page with static Blog ✅ 2025-10-06
 - [x] Move current fake blog page to second Page ✅ 2025-09-25
+- [x] Add Social links ✅ 2025-10-06
+	#UI #NavBar
+- [x] Style Scroll Bars ✅ 2025-10-06
+	#UI
 - [x] Clean Up blog Component ✅ 2025-09-25
 - [x] [[configurable blog designer]] ✅ 2025-09-25
 - [x] Create Basic Site Theme variables ✅ 2025-09-17
