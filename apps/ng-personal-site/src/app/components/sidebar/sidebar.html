@@ -40,5 +40,18 @@
     </div>
     } @if (isExpanded()) { <app-nav-list></app-nav-list>}
   </div>
-  @if (isExpanded()){<app-quick-contact></app-quick-contact>}
+  @if (isExpanded()){
+  <div>
+    <div
+      class="flex row w-full items-center justify-between px-3 py-2 border-t border-b border-theme-tertiary"
+    >
+      <div class="text-xl text-theme-primary-text">Dark mode</div>
+      <app-toggle-switch
+        [state]="themeService.isDarkTheme()"
+        (stateChange)="themeService.setTheme($event)"
+      ></app-toggle-switch>
+    </div>
+    <app-quick-contact></app-quick-contact>
+  </div>
+  }
 </aside>

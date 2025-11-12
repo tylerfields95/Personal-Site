@@ -31,6 +31,7 @@ export class Blogbody {
 }
 
 export class blogImage {
+  public imageSrc?: string;
   public imageName?: string;
   public position?: ImagePosition;
 }
@@ -40,4 +41,5 @@ export enum ImagePosition {
   Bottom, // 1
   Left, // 2
   Right, // 3
+  HeaderTop, // 4
 }

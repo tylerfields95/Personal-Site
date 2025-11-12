@@ -1,10 +1,11 @@
 import { Component, Signal, signal, WritableSignal } from '@angular/core';
 import { Blog } from '../../components/blog/blog';
 import { Blogbody, BlogContent, blogImage, ImagePosition } from '../../models';
+import { ToggleSwitch } from '../../components/toggle-switch/toggle-switch';
 
 @Component({
   selector: 'app-home',
-  imports: [Blog],
+  imports: [Blog, ToggleSwitch],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -14,66 +15,53 @@ export class Home {
 
   public buildFakeBlogData(): BlogContent {
     const blog = new BlogContent();
-    blog.header = 'This is only a Test';
-    blog.subHeader = 'SubHeader Test';
+    blog.header = 'Welcome';
+    blog.subHeader = 'An introduction';
     blog.createdOn = new Date();
     blog.lastModifiedOn = blog.createdOn;
     blog.author = 'Tyler Fields';
 
+    const headerImages: blogImage[] = [
+      {
+        imageSrc: 'assets/images/portrait_circle.png',
+        imageName: 'top img 1',
+        position: ImagePosition.HeaderTop,
+      },
+    ];
+
+    blog.headerImages = headerImages;
+
     const leftImages: blogImage[] = [
-      { imageName: 'left img 1', position: ImagePosition.Left },
-      { imageName: 'left img 2', position: ImagePosition.Left },
+      {
+        imageSrc: 'assets/images/portrait_circle.png',
+        imageName: 'left img 1',
+        position: ImagePosition.Left,
+      },
     ];
     const rightImages: blogImage[] = [{ imageName: 'right img 1', position: ImagePosition.Right }];
     const bottomImages: blogImage[] = [
       { imageName: 'bottom img 1', position: ImagePosition.Bottom },
       { imageName: 'bottom img 2', position: ImagePosition.Bottom },
     ];
-    const topImages: blogImage[] = [{ imageName: 'right img 1', position: ImagePosition.Right }];
+    const topImages: blogImage[] = [
+      {
+        imageSrc: 'assets/images/portrait_circle.png',
+        imageName: 'top img 1',
+        position: ImagePosition.HeaderTop,
+      },
+    ];
 
     const blogBodies: Blogbody[] = [
       new Blogbody({
-        header: 'Introduction',
-        subHeader: 'Getting started',
-        blogImages: [...leftImages, ...bottomImages],
-        body: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+        blogImages: [...topImages, ...bottomImages],
+        body: `Hi, I’m Tyler Fields, a full-stack software developer with over six years of experience developing, modernizing, and optimizing enterprise-grade web applications.
+        
+This site is both a personal portfolio and a sandbox where I test ideas, share experiments, and write about what I’m learning. It’s built as a proof of concept to show my ability to design and develop a modern web application with Angular, a .NET back end, and a database. Over time, I’ll use it to publish blog posts, capture side projects, and document the technologies I’m exploring. 
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+The site is still pretty bare bones. so, bear  with me while i work through updating it from its current static form to something a little more fun. the plan at the moment is an angular front end (check), a simple monolithic ASP.NET core back end, and a postgreSQL database. 
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.`,
-      }),
-      new Blogbody({
-        header: 'Main Topic',
-        subHeader: 'Deep dive',
-        body: `**feature overview**
-* A configurable container which can host the body content in a card, or freely in the page body
-* configurable header text
-* body text region
-* ability to insert content into the body text in user defined locations`,
-      }),
-      new Blogbody({
-        header: 'Conclusion',
-        subHeader: 'Wrapping up',
-        body: `\`\`\`
-export class pageContent {
-  Header: string = '';
-  subHeader: string;
-  postDate: Date;
-  updateDate: Date;
-  author: user = null;
-  bodyContent: contentBlock[];
-}
-
-export class contentBlock {
-  Header: string;
-  subHeader: string;
-  body: string;
-}
-\`\`\``,
+The source code for this site is hosted on my github, [here](https://github.com/tylerfields95/Personal-Site).`,
       }),
     ];
 

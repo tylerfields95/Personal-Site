@@ -3,10 +3,12 @@ import { Component, computed, Signal, signal } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 import { QuickContact } from '../quick-contact/quick-contact';
 import { NavList } from '../nav-list/nav-list';
+import { ToggleSwitch } from '../toggle-switch/toggle-switch';
+import { Theme } from '../../services/theme';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [NgClass, QuickContact, NavList],
+  imports: [NgClass, QuickContact, NavList, ToggleSwitch],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
@@ -20,7 +22,7 @@ export class Sidebar {
 
   public routes: Signal<Routes>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public themeService: Theme) {
     this.routes = signal(this.router.config);
   }
 
