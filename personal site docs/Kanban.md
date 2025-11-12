@@ -6,6 +6,9 @@ kanban-plugin: board
 
 ## To Do
 
+- [ ] Configure Dark theme
+	#UI
+- [ ] Add Full Contact Page
 - [ ] [[Write about me text]]
 	#AboutMe
 - [ ] Host Client App
@@ -24,10 +27,9 @@ kanban-plugin: board
 
 ## Active
 
-- [ ] Add Full Contact Page
-- [ ] Configure Dark theme
-	#UI
 - [ ] Add theme switcher
+	#UI
+- [ ] Create a toggle switch component
 	#UI
 
 

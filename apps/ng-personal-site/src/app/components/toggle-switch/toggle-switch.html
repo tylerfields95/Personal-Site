@@ -1,0 +1,15 @@
+<div
+  class="group bg-theme-primary hover:bg-theme-secondary hover: cursor-pointer active:bg-theme-tertiary duration-500 ease-in-out rounded-full flex items-center relative relative ring-1 ring-theme-tertiary overflow-hidden"
+  style="width: 4.25rem; height: 2.25rem"
+  (click)="toggleState()"
+>
+  <div
+    class="bg-accent-muted group-hover:bg-accent transition-colors duration-500 ease-in-out rounded-full absolute top-1/2 -translate-y-1/2"
+    [style.left]="state() ? 'calc(4.25rem - 2rem - 0.25rem)' : '0.25rem'"
+    style="
+      width: 2rem;
+      height: 2rem;
+      transition: left 250ms ease-in-out, background-color 500ms ease-in-out;
+    "
+  ></div>
+</div>
