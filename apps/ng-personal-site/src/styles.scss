@@ -58,6 +58,13 @@
   }
 }
 
+/* Global transition for smooth theme changes */
+* {
+  transition: background-color 300ms ease-in-out,
+              color 300ms ease-in-out,
+              border-color 300ms ease-in-out;
+}
+
 /* Tailwind v4 tokens: utilities like bg-*, text-*, border-* read these */
 @layer base {
   :root {

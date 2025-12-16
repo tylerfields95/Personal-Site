@@ -25,13 +25,13 @@ kanban-plugin: board
 
 - [ ] Fix transition times when toggling theme
 	#UI
-- [ ] host site on tylerfields.me
-	#AWS #Cloud #S3 #infrastructure
 
 
 ## Done
 
 **Complete**
+- [x] host site on tylerfields.me ✅ 2025-12-16
+	#AWS #Cloud #S3 #infrastructure
 - [x] Add theme switcher ✅ 2025-11-17
 	#UI
 - [x] [[Fix Navbar Behavior]] ✅ 2025-09-20
