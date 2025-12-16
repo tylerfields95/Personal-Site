@@ -6,8 +6,6 @@ kanban-plugin: board
 
 ## To Do
 
-- [ ] Configure Dark theme
-	#UI
 - [ ] Add Full Contact Page
 - [ ] [[Write about me text]]
 	#AboutMe
@@ -17,21 +15,25 @@ kanban-plugin: board
 	#DB #infrastructure
 - [ ] Figure out the best way to deal with images
 	#infrastructure
-- [ ] Fix markdown colors
-	#UI
 
 
 ## Active
 
-- [ ] Fix transition times when toggling theme
-	#UI
+- [ ] Deploy Latest client code to S3
+	#infrastructure
 
 
 ## Done
 
 **Complete**
+- [x] Fix markdown colors ✅ 2025-12-16
+	#UI
 - [x] host site on tylerfields.me ✅ 2025-12-16
 	#AWS #Cloud #S3 #infrastructure
+- [x] Configure Dark theme ✅ 2025-12-16
+	#UI
+- [x] Fix transition times when toggling theme ✅ 2025-12-16
+	#UI
 - [x] Add theme switcher ✅ 2025-11-17
 	#UI
 - [x] [[Fix Navbar Behavior]] ✅ 2025-09-20
