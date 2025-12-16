@@ -5,14 +5,13 @@
     preferredStrategy: 'pseudoelements';
 }
 
-/* Override list marker color */
+/* Override list marker color to use theme-aware color */
 .prose ul > li::marker {
-  color: theme("colors.black"); /* or "currentColor" */
+  color: var(--primary-text);
 }
 
 @layer utilities {
   .prose-theme {
-    /* normal */
     --tw-prose-body: var(--primary-text);
     --tw-prose-headings: var(--primary-text);
     --tw-prose-lead: var(--secondary-text);
@@ -20,33 +19,22 @@
     --tw-prose-bold: var(--primary-text);
     --tw-prose-counters: var(--secondary-text);
     --tw-prose-bullets: var(--primary-text);
-    --tw-prose-hr: var(--primary-text);
+    --tw-prose-hr: var(--tertiary-color);
     --tw-prose-quotes: var(--primary-text);
-    --tw-prose-quote-borders: var(--primary-text);
+    --tw-prose-quote-borders: var(--quaternary-color);
     --tw-prose-captions: var(--secondary-text);
     --tw-prose-code: var(--accent);
-    --tw-prose-pre-code: var(--accent-inverted);
-    --tw-prose-pre-bg: var(--primary-text);
-    --tw-prose-th-borders: var(--primary-text);
-    --tw-prose-td-borders: var(--primary-text);
+    --tw-prose-pre-code: var(--primary-text);
+    --tw-prose-pre-bg: var(--tertiary-color);
+    --tw-prose-th-borders: var(--tertiary-color);
+    --tw-prose-td-borders: var(--tertiary-color);
+  }
 
-    /* invert set (used by .prose-invert) */
-    --tw-prose-invert-body: var(--primary-text);
-    --tw-prose-invert-headings: var(--primary-text);
-    --tw-prose-invert-lead: var(--secondary-text);
-    --tw-prose-invert-links: var(--accent);
-    --tw-prose-invert-bold: var(--primary-text);
-    --tw-prose-invert-counters: var(--secondary-text);
-    --tw-prose-invert-bullets: var(--secondary-text);
-    --tw-prose-invert-hr: var(--primary-text);
-    --tw-prose-invert-quotes: var(--primary-text);
-    --tw-prose-invert-quote-borders: var(--primary-text);
-    --tw-prose-invert-captions: var(--secondary-text);
-    --tw-prose-invert-code: var(--accent);
-    --tw-prose-invert-pre-code: var(--accent-inverted);
-    --tw-prose-invert-pre-bg: var(--primary-text);
-    --tw-prose-invert-th-borders: var(--primary-text);
-    --tw-prose-invert-td-borders: var(--primary-text);
+  /* Inline code background and padding for better visibility */
+  .prose-theme code:not(pre code) {
+    background-color: var(--tertiary-color);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
   }
 
   .no-scrollbar-arrows::-webkit-scrollbar-button {
@@ -56,6 +44,13 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
+}
+
+/* Global transition for smooth theme changes */
+* {
+  transition: background-color 300ms ease-in-out,
+              color 300ms ease-in-out,
+              border-color 300ms ease-in-out;
 }
 
 /* Tailwind v4 tokens: utilities like bg-*, text-*, border-* read these */
@@ -76,14 +71,14 @@
   }
 
   .light  {
-    --primary-color: white;
-    --secondary-color: rgb(241, 241, 241);
-    --tertiary-color: rgb(224, 224, 224);
-    --quaternary-color: rgb(179, 179, 179);
-    --quinary-color: rgb(136, 136, 136);
-    
+    --primary-color: rgb(249, 249, 249);
+    --secondary-color: white;
+    --tertiary-color: rgb(229, 229, 229);
+    --quaternary-color: rgb(212, 212, 212);
+    --quinary-color: rgb(163, 163, 163);
+
     --primary-text: black;
-    --secondary-text: theme("colors.zinc.700");;
+    --secondary-text: theme("colors.zinc.700");
 
     --accent: rgb(107, 26, 116);
     --accent-muded: rgb(168, 72, 178);
@@ -91,15 +86,15 @@
   }
 
   .dark{
-    --primary-color: theme("colors.zinc.950");
-    --secondary-color: theme("colors.zinc.900");
+    --primary-color: theme("colors.zinc.900");
+    --secondary-color: theme("colors.zinc.800");
     --tertiary-color: theme("colors.zinc.700");
     --quaternary-color: theme("colors.zinc.600");
     --quinary-color: theme("colors.zinc.500");
 
     --primary-text: theme("colors.zinc.100");
     --secondary-text: theme("colors.zinc.300");
-    
+
     --accent: rgb(107, 26, 116);
     --accent-muded: rgb(168, 72, 178);
     --accent-inverted: rgb(255, 255, 255);
