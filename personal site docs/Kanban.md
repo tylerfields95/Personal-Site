@@ -19,13 +19,13 @@ kanban-plugin: board
 
 ## Active
 
-- [ ] Add Theme Toggle to mobile navbar
-	#UI
 
 
 ## Done
 
 **Complete**
+- [x] Add Theme Toggle to mobile navbar ✅ 2025-12-18
+	#UI
 - [x] Android navigation footer panel is themed incorrectly ✅ 2025-12-18
 	#UI #Mobile
 	
