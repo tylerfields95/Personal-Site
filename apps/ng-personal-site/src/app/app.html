@@ -1,5 +1,5 @@
 <!-- app.component.html -->
-<div class="flex h-screen" [ngClass]="themeService.isDarkTheme() ? 'dark' : 'light'">
+<div class="flex h-screen-dynamic" [ngClass]="themeService.isDarkTheme() ? 'dark' : 'light'">
   <!-- Left sidebar -->
   @if(viewportService.isLandscape()){
   <app-sidebar></app-sidebar>

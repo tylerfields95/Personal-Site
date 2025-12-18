@@ -13,7 +13,7 @@ import { NavList } from '../nav-list/nav-list';
 export class Header {
   readonly isExpanded = signal(false);
   readonly isExpandIcon = signal(false);
-  readonly widthClass = computed(() => (this.isExpanded() ? 'h-screen' : 'h-12 items-center'));
+  readonly widthClass = computed(() => (this.isExpanded() ? 'h-screen-dynamic' : 'h-12 items-center'));
 
   constructor(private router: Router) {}
 
