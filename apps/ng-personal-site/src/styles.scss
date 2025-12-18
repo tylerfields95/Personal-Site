@@ -11,6 +11,31 @@
 }
 
 @layer utilities {
+  /* Mobile viewport height utilities for handling browser UI */
+  .h-screen-dynamic {
+    height: 100dvh; /* Dynamic viewport height - adjusts as browser UI shows/hides */
+  }
+
+  .h-screen-small {
+    height: 100svh; /* Small viewport height - assumes browser UI is visible */
+  }
+
+  .h-screen-large {
+    height: 100lvh; /* Large viewport height - assumes browser UI is hidden */
+  }
+
+  .min-h-screen-dynamic {
+    min-height: 100dvh;
+  }
+
+  .min-h-screen-small {
+    min-height: 100svh;
+  }
+
+  .min-h-screen-large {
+    min-height: 100lvh;
+  }
+
   .prose-theme {
     --tw-prose-body: var(--primary-text);
     --tw-prose-headings: var(--primary-text);

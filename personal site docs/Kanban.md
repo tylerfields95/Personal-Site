@@ -15,17 +15,36 @@ kanban-plugin: board
 	#DB #infrastructure
 - [ ] Figure out the best way to deal with images
 	#infrastructure
+- [ ] fix navbar color
+	#UI
+- [ ] Add Theme Toggle to mobile navbar
+	#UI
 
 
 ## Active
 
-- [ ] Deploy Latest client code to S3
-	#infrastructure
+- [ ] Android navigation footer panel is themed incorrectly
+	#UI #Mobile
+	
+	The android navigation at the bottom of the screen somehow decides on the fly how it will be themed based on the content (or something). This needs to reflect the current dark/light theme selection in the navbar.
 
 
 ## Done
 
 **Complete**
+- [x] fix mobile height issue. ✅ 2025-12-18
+	#UI #Mobile 
+	
+	On chrome mobile (android), there is a dedicated portion of the screen that is taken up by both the android navigation buttons and the browser header UI region. The browser header can be dismissed by scrolling down slightly, but the android footer is static.
+	
+	The page layout should account for the available space regardless of the current situation (browser header visible or not)
+
+
+## V1.0
+
+**Complete**
+- [x] Deploy Latest client code to S3 ✅ 2025-12-18
+	#infrastructure
 - [x] Fix markdown colors ✅ 2025-12-16
 	#UI
 - [x] host site on tylerfields.me ✅ 2025-12-16
@@ -58,6 +77,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false],"table-sizing":{"card":272}}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false],"table-sizing":{"card":272}}
 ```
 %%

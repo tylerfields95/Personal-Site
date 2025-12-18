@@ -11,14 +11,21 @@
             "id": "f15b20f9cb117b29",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Documentation/Deployment-Guide.md",
-                "mode": "source",
-                "source": false
+                "file": "Kanban.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "Deployment-Guide"
+              "icon": "lucide-trello",
+              "title": "Kanban"
             }
           }
         ]
@@ -173,8 +180,8 @@
   },
   "active": "f15b20f9cb117b29",
   "lastOpenFiles": [
-    "Kanban.md",
     "Documentation/Deployment-Guide.md",
+    "Kanban.md",
     "Deployment-Guide.md",
     "Deployment-Guide.md.tmp.56968.1765922419920",
     "Documentation/AWS ECR Setup.md",
