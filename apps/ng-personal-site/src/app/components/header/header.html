@@ -1,5 +1,5 @@
 <header
-  class="w-full h-full bg-theme-primary flex flex-col justify-between"
+  class="w-full h-full bg-theme-secondary flex flex-col justify-between"
   [ngClass]="widthClass()"
 >
   <!-- This will stretch to fill the space -->
@@ -9,10 +9,13 @@
 
   <!-- Button container stays fixed height -->
   <div class="w-full">
-    @if(isExpanded()){<app-quick-contact></app-quick-contact>}
+    @if(isExpanded()){
+      <app-theme-toggle></app-theme-toggle>
+      <app-quick-contact></app-quick-contact>
+    }
 
     <button
-      class="flex justify-center items-center p-2 bg-theme-primary text-theme-primary-text hover:bg-theme-secondary hover:cursor-pointer hover:text-accent-muted w-full h-12 w-full border-theme-tertiary"
+      class="flex justify-center items-center p-2 bg-theme-secondary text-theme-primary-text hover:bg-theme-tertiary hover:cursor-pointer hover:text-accent-muted w-full h-12 w-full border-theme-tertiary"
       [ngClass]="isExpanded() ? 'border-t ' : 'border-b'"
       (click)="toggleHeader()"
       (mouseenter)="onEnterExpandButton()"

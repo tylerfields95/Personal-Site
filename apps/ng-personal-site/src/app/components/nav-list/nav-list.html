@@ -1,6 +1,6 @@
 @for (r of routes(); track r.path) {
 <div
-  class="w-full flex justify-center bg-theme-primary hover:bg-theme-secondary text-theme-primary-text hover:cursor-pointer hover:text-accent text-xl py-2"
+  class="w-full flex justify-center bg-theme-secondary hover:bg-theme-tertiary text-theme-primary-text hover:cursor-pointer hover:text-accent text-xl py-2"
   (click)="navigateToPath(r?.path)"
 >
   {{ r?.data?.['label'] }}

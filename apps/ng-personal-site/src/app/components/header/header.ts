@@ -3,10 +3,11 @@ import { Component, computed, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuickContact } from '../quick-contact/quick-contact';
 import { NavList } from '../nav-list/nav-list';
+import { ThemeToggle } from '../theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-header',
-  imports: [NgClass, QuickContact, NavList],
+  imports: [NgClass, QuickContact, NavList, ThemeToggle],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

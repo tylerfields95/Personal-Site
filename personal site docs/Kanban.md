@@ -15,23 +15,21 @@ kanban-plugin: board
 	#DB #infrastructure
 - [ ] Figure out the best way to deal with images
 	#infrastructure
-- [ ] fix navbar color
-	#UI
-- [ ] Add Theme Toggle to mobile navbar
-	#UI
 
 
 ## Active
 
-- [ ] Android navigation footer panel is themed incorrectly
-	#UI #Mobile
-	
-	The android navigation at the bottom of the screen somehow decides on the fly how it will be themed based on the content (or something). This needs to reflect the current dark/light theme selection in the navbar.
+- [ ] Add Theme Toggle to mobile navbar
+	#UI
 
 
 ## Done
 
 **Complete**
+- [x] Android navigation footer panel is themed incorrectly ✅ 2025-12-18
+	#UI #Mobile
+	
+	The android navigation at the bottom of the screen somehow decides on the fly how it will be themed based on the content (or something). This needs to reflect the current dark/light theme selection in the navbar.
 - [x] fix mobile height issue. ✅ 2025-12-18
 	#UI #Mobile 
 	
