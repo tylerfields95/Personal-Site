@@ -1,0 +1,9 @@
+<div
+  class="flex row w-full items-center justify-center gap-3 px-3 py-2 border-t border-b border-theme-tertiary"
+>
+  <div class="text-xl text-theme-primary-text">Dark mode</div>
+  <app-toggle-switch
+    [state]="themeService.isDarkTheme()"
+    (stateChange)="themeService.setTheme($event)"
+  ></app-toggle-switch>
+</div>

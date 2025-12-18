@@ -1,12 +1,12 @@
 <aside
-  class="flex flex-col justify-between h-full bg-theme-primary transition-all duration-150 delay-100 ease-in-out border-r border-theme-tertiary"
+  class="flex flex-col justify-between h-full bg-theme-secondary transition-all duration-150 delay-100 ease-in-out border-r border-theme-tertiary"
   [ngClass]="widthClass()"
 >
   <div>
     @if (isExpanded()) {
     <div class="flex items-center justify-between w-full h-16 px-2 border-b border-theme-tertiary">
       <button
-        class="group flex justify-center items-center p-2 rounded-sm bg-theme-primary hover:bg-theme-secondary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        class="group flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
         (click)="goHome()"
         (mouseenter)="onEnterHomeIcon()"
         (mouseleave)="onLeaveHomeIcon()"
@@ -18,7 +18,7 @@
       </button>
 
       <button
-        class="flex justify-center items-center p-2 rounded-sm bg-theme-primary hover:bg-theme-secondary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        class="flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
         (click)="toggleSidebar()"
       >
         <i class="fa-solid fa-angles-left text-2xl"></i>
@@ -27,7 +27,7 @@
     } @else {
     <div class="w-full h-16 flex items-center justify-center">
       <button
-        class="flex justify-center items-center p-2 rounded-sm bg-theme-primary hover:bg-theme-secondary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        class="flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
         (click)="toggleSidebar()"
         (mouseenter)="onEnterHomeIcon()"
         (mouseleave)="onLeaveHomeIcon()"
@@ -42,15 +42,7 @@
   </div>
   @if (isExpanded()){
   <div>
-    <div
-      class="flex row w-full items-center justify-between px-3 py-2 border-t border-b border-theme-tertiary"
-    >
-      <div class="text-xl text-theme-primary-text">Dark mode</div>
-      <app-toggle-switch
-        [state]="themeService.isDarkTheme()"
-        (stateChange)="themeService.setTheme($event)"
-      ></app-toggle-switch>
-    </div>
+    <app-theme-toggle></app-theme-toggle>
     <app-quick-contact></app-quick-contact>
   </div>
   }
