@@ -95,6 +95,11 @@
     --accent-inverted: rgb(255, 255, 255);
   }
 
+  /* Set body background to match theme - critical for Android navigation bar */
+  body {
+    background-color: var(--primary-color);
+  }
+
   .light  {
     --primary-color: rgb(249, 249, 249);
     --secondary-color: white;
