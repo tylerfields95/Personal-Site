@@ -6,7 +6,7 @@
     @if (isExpanded()) {
     <div class="flex items-center justify-between w-full h-16 px-2 border-b border-theme-tertiary">
       <button
-        class="group flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        class="group flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary active:bg-theme-quaternary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted active:text-accent"
         (click)="goHome()"
         (mouseenter)="onEnterHomeIcon()"
         (mouseleave)="onLeaveHomeIcon()"
@@ -18,7 +18,7 @@
       </button>
 
       <button
-        class="flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        class="flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary active:bg-theme-quaternary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted active:text-accent"
         (click)="toggleSidebar()"
       >
         <i class="fa-solid fa-angles-left text-2xl"></i>
@@ -27,7 +27,7 @@
     } @else {
     <div class="w-full h-16 flex items-center justify-center">
       <button
-        class="flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted"
+        class="flex justify-center items-center p-2 rounded-sm bg-theme-secondary hover:bg-theme-tertiary active:bg-theme-quaternary hover:cursor-pointer text-theme-primary-text hover:text-accent-muted active:text-accent"
         (click)="toggleSidebar()"
         (mouseenter)="onEnterHomeIcon()"
         (mouseleave)="onLeaveHomeIcon()"

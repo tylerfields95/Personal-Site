@@ -15,7 +15,7 @@
     }
 
     <button
-      class="flex justify-center items-center p-2 bg-theme-secondary text-theme-primary-text hover:bg-theme-tertiary hover:cursor-pointer hover:text-accent-muted w-full h-12 w-full border-theme-tertiary"
+      class="flex justify-center items-center p-2 bg-theme-secondary text-theme-primary-text hover:bg-theme-tertiary active:bg-theme-quaternary hover:cursor-pointer hover:text-accent-muted active:text-accent w-full h-12 w-full border-theme-tertiary"
       [ngClass]="isExpanded() ? 'border-t ' : 'border-b'"
       (click)="toggleHeader()"
       (mouseenter)="onEnterExpandButton()"
