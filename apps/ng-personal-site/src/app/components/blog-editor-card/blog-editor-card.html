@@ -1,0 +1,47 @@
+<div class="w-full h-full bg-theme-secondary border border-theme-tertiary flex flex-col">
+  <!-- The header for the entirerty of the blog entry (each blog may have an array of body content, each with their own header/subheader) -->
+  <div class="bg-blue-500 py-4 px-4">
+    <h1 class="text-2xl md:text-3xl font-bold text-theme-primary-text">Blog Editor</h1>
+  </div>
+  <div class="flex-1 bg-red-500 overflow-auto scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr class="border-b border-theme-tertiary">
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Actions</th>
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Title</th>
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Subtitle</th>
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Author</th>
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (blog of blogs(); track blog.header; let i = $index) {
+        <tr class="border-b border-theme-tertiary hover:bg-theme-tertiary transition-colors">
+          <td class="p-3">
+            <button
+              (click)="onEdit(i)"
+              class="mr-2 text-theme-primary-text hover:text-accent transition-colors"
+            >
+              Edit
+            </button>
+            <button
+              (click)="onDelete(i)"
+              class="text-theme-primary-text hover:text-red-500 transition-colors"
+            >
+              Delete
+            </button>
+          </td>
+          <td class="p-3 text-theme-primary-text">{{ blog.header }}</td>
+          <td class="p-3 text-theme-secondary-text">{{ blog.subHeader }}</td>
+          <td class="p-3 text-theme-secondary-text">{{ blog.author }}</td>
+          <td class="p-3 text-theme-secondary-text">{{ formatDate(blog.createdOn) }}</td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="5" class="p-6 text-center text-theme-secondary-text">No blogs found.</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

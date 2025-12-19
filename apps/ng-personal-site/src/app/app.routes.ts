@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { SecondPage } from './pages/second-page/second-page';
+import { BlogEditor } from './pages/blog-editor/blog-editor';
 
 export type NavData = {
   label: string; // display string for sidebar
@@ -18,6 +19,11 @@ export const routes: Routes = [
   {
     path: 'second',
     component: SecondPage,
-    data: { label: 'Second Page', icon: 'fa-solid fa-crosshairs', nav: true, order: 1 },
+    data: { label: 'Second Page', icon: 'fa-solid fa-crosshairs', nav: true, order: 2 },
+  },
+  {
+    path: 'blog-editor',
+    component: BlogEditor,
+    data: { label: 'Blog Editor', icon: 'fa-solid fa-pen-to-square', nav: true, order: 3 },
   },
 ];

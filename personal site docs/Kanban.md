@@ -15,6 +15,8 @@ kanban-plugin: board
 	#DB #infrastructure
 - [ ] Figure out the best way to deal with images
 	#infrastructure
+- [ ] [[Blog Editor]]
+	#UI #Feature
 
 
 ## Active
@@ -75,6 +77,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false],"table-sizing":{"card":272}}
+{"kanban-plugin":"board","list-collapse":[false,false,false,true],"table-sizing":{"card":272}}
 ```
 %%
