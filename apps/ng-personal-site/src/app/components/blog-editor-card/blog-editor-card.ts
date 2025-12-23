@@ -14,6 +14,22 @@ export class BlogEditorCard {
   constructor(private blogService: BlogService) {}
 
   /**
+   * Handle add new blog action
+   */
+  public onAdd(): void {
+    console.log('Add new blog');
+    // TODO: Navigate to create new blog view
+  }
+
+  /**
+   * Handle preview action for a blog
+   */
+  public onPreview(index: number): void {
+    console.log('Preview blog at index:', index);
+    // TODO: Navigate to preview view
+  }
+
+  /**
    * Handle edit action for a blog
    */
   public onEdit(index: number): void {

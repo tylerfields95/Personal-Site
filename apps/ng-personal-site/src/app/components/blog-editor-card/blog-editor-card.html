@@ -1,40 +1,70 @@
 <div class="w-full h-full bg-theme-secondary border border-theme-tertiary flex flex-col">
   <!-- The header for the entirerty of the blog entry (each blog may have an array of body content, each with their own header/subheader) -->
-  <div class="bg-blue-500 py-4 px-4">
+  <div class="border-b border-theme-tertiary py-4 px-4 flex items-center justify-between flex-shrink-0">
     <h1 class="text-2xl md:text-3xl font-bold text-theme-primary-text">Blog Editor</h1>
+    <button
+      (click)="onAdd()"
+      class="bg-accent hover:bg-accent-muted active:bg-accent text-white font-semibold py-2 px-4 rounded flex items-center gap-2 transition-colors cursor-pointer"
+      aria-label="Add new blog"
+    >
+      <i class="fa-solid fa-plus"></i>
+      <span>Add</span>
+    </button>
   </div>
-  <div class="flex-1 bg-red-500 overflow-auto scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary">
+  <div
+    class="flex-1 overflow-auto scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
+  >
     <table class="w-full border-collapse">
       <thead>
         <tr class="border-b border-theme-tertiary">
           <th class="text-left p-3 font-semibold text-theme-primary-text">Actions</th>
           <th class="text-left p-3 font-semibold text-theme-primary-text">Title</th>
-          <th class="text-left p-3 font-semibold text-theme-primary-text">Subtitle</th>
-          <th class="text-left p-3 font-semibold text-theme-primary-text">Author</th>
+          <th class="hidden md:table-cell text-left p-3 font-semibold text-theme-primary-text">
+            Subtitle
+          </th>
+          <th class="hidden md:table-cell text-left p-3 font-semibold text-theme-primary-text">
+            Author
+          </th>
           <th class="text-left p-3 font-semibold text-theme-primary-text">Date</th>
         </tr>
       </thead>
       <tbody>
         @for (blog of blogs(); track blog.header; let i = $index) {
         <tr class="border-b border-theme-tertiary hover:bg-theme-tertiary transition-colors">
-          <td class="p-3">
-            <button
-              (click)="onEdit(i)"
-              class="mr-2 text-theme-primary-text hover:text-accent transition-colors"
-            >
-              Edit
-            </button>
-            <button
-              (click)="onDelete(i)"
-              class="text-theme-primary-text hover:text-red-500 transition-colors"
-            >
-              Delete
-            </button>
+          <td class="p-3 whitespace-nowrap">
+            <div class="flex gap-4">
+              <button
+                (click)="onPreview(i)"
+                class="text-xl text-theme-primary-text hover:text-accent-muted active:text-accent transition-colors cursor-pointer"
+                aria-label="Preview blog"
+                title="Preview"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+              <button
+                (click)="onEdit(i)"
+                class="text-xl text-theme-primary-text hover:text-accent-muted active:text-accent transition-colors cursor-pointer"
+                aria-label="Edit blog"
+                title="Edit"
+              >
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button
+                (click)="onDelete(i)"
+                class="text-xl text-theme-primary-text hover:text-red-500 active:text-red-700 transition-colors cursor-pointer"
+                aria-label="Delete blog"
+                title="Delete"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </td>
           <td class="p-3 text-theme-primary-text">{{ blog.header }}</td>
-          <td class="p-3 text-theme-secondary-text">{{ blog.subHeader }}</td>
-          <td class="p-3 text-theme-secondary-text">{{ blog.author }}</td>
-          <td class="p-3 text-theme-secondary-text">{{ formatDate(blog.createdOn) }}</td>
+          <td class="hidden md:table-cell p-3 text-theme-secondary-text">{{ blog.subHeader }}</td>
+          <td class="hidden md:table-cell p-3 text-theme-secondary-text">{{ blog.author }}</td>
+          <td class="p-3 text-theme-secondary-text whitespace-nowrap">
+            {{ formatDate(blog.createdOn) }}
+          </td>
         </tr>
         } @empty {
         <tr>
