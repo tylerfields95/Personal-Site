@@ -145,3 +145,141 @@
   --color-accent-muted: var(--accent-muded);
   --color-theme-inverted: var(--accent-inverted);
 }
+
+/* ngxsmk-datepicker theme integration */
+ngxsmk-datepicker {
+  /* Override all datepicker colors to use our theme */
+  --datepicker-primary-color: var(--accent) !important;
+  --datepicker-primary-contrast: var(--accent-inverted) !important;
+  --datepicker-range-background: rgba(107, 26, 116, 0.1) !important;
+  --datepicker-background: var(--secondary-color) !important;
+  --datepicker-bg: var(--secondary-color) !important;
+  --datepicker-text-color: var(--primary-text) !important;
+  --datepicker-text: var(--primary-text) !important;
+  --datepicker-border-color: var(--tertiary-color) !important;
+  --datepicker-border: var(--tertiary-color) !important;
+  --datepicker-hover-background: var(--tertiary-color) !important;
+  --datepicker-hover-bg: var(--tertiary-color) !important;
+  --datepicker-disabled-text: var(--quinary-color) !important;
+  --datepicker-secondary-text: var(--secondary-text) !important;
+  --datepicker-muted-text: var(--secondary-text) !important;
+  --datepicker-header-bg: var(--secondary-color) !important;
+  --datepicker-calendar-bg: var(--secondary-color) !important;
+  --datepicker-day-hover: var(--tertiary-color) !important;
+  --datepicker-input-bg: var(--secondary-color) !important;
+  --datepicker-input-border: var(--tertiary-color) !important;
+  --datepicker-input-text: var(--primary-text) !important;
+}
+
+/* Deep override for datepicker internal elements */
+ngxsmk-datepicker ::ng-deep {
+  /* Catch all possible calendar/popover containers */
+  [class*="calendar"],
+  [class*="popover"],
+  [class*="picker"],
+  div[role="dialog"],
+  .ngxsmk-datepicker-calendar,
+  .ngxsmk-datepicker-popover,
+  .ngxsmk-calendar {
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-text) !important;
+    border-color: var(--tertiary-color) !important;
+  }
+
+  /* Input field */
+  [class*="input"],
+  input,
+  .ngxsmk-datepicker-input,
+  .ngxsmk-input {
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-text) !important;
+    border-color: var(--tertiary-color) !important;
+  }
+
+  /* Header */
+  [class*="header"],
+  .ngxsmk-datepicker-header,
+  .ngxsmk-calendar-header {
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-text) !important;
+  }
+
+  /* Day cells */
+  [class*="day"]:not([class*="weekday"]),
+  button[class*="day"],
+  .ngxsmk-datepicker-day,
+  .ngxsmk-calendar-day,
+  .ngxsmk-day {
+    color: var(--primary-text) !important;
+    background-color: transparent !important;
+
+    &:hover:not(.disabled):not(.selected):not([disabled]) {
+      background-color: var(--tertiary-color) !important;
+    }
+
+    &.selected,
+    &[class*="selected"] {
+      background-color: var(--accent) !important;
+      color: white !important;
+    }
+
+    &.today,
+    &[class*="today"] {
+      border-color: var(--accent) !important;
+    }
+
+    &.disabled,
+    &[disabled] {
+      color: var(--quinary-color) !important;
+    }
+  }
+
+  /* Weekday labels */
+  [class*="weekday"],
+  .ngxsmk-datepicker-weekday,
+  .ngxsmk-weekday {
+    color: var(--secondary-text) !important;
+    background-color: transparent !important;
+  }
+
+  /* Footer */
+  [class*="footer"],
+  .ngxsmk-datepicker-footer,
+  .ngxsmk-calendar-footer {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--tertiary-color) !important;
+  }
+
+  /* Buttons in footer */
+  button {
+    &[class*="clear"],
+    &[class*="cancel"] {
+      color: var(--secondary-text) !important;
+      background-color: transparent !important;
+
+      &:hover {
+        background-color: var(--tertiary-color) !important;
+      }
+    }
+
+    &[class*="close"],
+    &[class*="apply"],
+    &[class*="ok"] {
+      background-color: var(--accent) !important;
+      color: white !important;
+
+      &:hover {
+        background-color: var(--accent-muded) !important;
+      }
+    }
+  }
+
+  /* Month/Year selectors */
+  [class*="month"],
+  [class*="year"],
+  select {
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-text) !important;
+    border-color: var(--tertiary-color) !important;
+  }
+}
