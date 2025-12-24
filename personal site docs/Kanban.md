@@ -17,10 +17,15 @@ kanban-plugin: board
 	#infrastructure
 - [ ] [[Blog Editor]]
 	#UI #Feature
+- [ ] Custom Grid Component
+- [ ] Generic Card Component
+- [ ] NestJS backend?
+- [ ] Unit Testing
 
 
 ## Active
 
+- [ ] Blog-add-edit-form
 
 
 ## Done

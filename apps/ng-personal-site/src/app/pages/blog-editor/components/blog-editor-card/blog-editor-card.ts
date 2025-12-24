@@ -1,24 +1,26 @@
-import { Component, computed } from '@angular/core';
-import { BlogService } from '../../services/blog.service';
+import { Component, computed, output } from '@angular/core';
+import { BlogService } from '../../../../services/blog.service';
+import { BlogEditorHeader } from '../blog-editor-header/blog-editor-header';
 
 @Component({
   selector: 'app-blog-editor-card',
-  imports: [],
+  imports: [BlogEditorHeader],
   templateUrl: './blog-editor-card.html',
   styleUrl: './blog-editor-card.scss',
 })
 export class BlogEditorCard {
+  readonly add = output<void>();
+
   // Computed signal that derives from the service's blogs signal
   public readonly blogs = computed(() => this.blogService.blogs());
 
   constructor(private blogService: BlogService) {}
 
   /**
-   * Handle add new blog action
+   * Handle add action from header
    */
   public onAdd(): void {
-    console.log('Add new blog');
-    // TODO: Navigate to create new blog view
+    this.add.emit();
   }
 
   /**

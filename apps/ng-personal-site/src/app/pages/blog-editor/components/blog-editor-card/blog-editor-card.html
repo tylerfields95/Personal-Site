@@ -1,16 +1,6 @@
 <div class="w-full h-full bg-theme-secondary border border-theme-tertiary flex flex-col">
-  <!-- The header for the entirerty of the blog entry (each blog may have an array of body content, each with their own header/subheader) -->
-  <div class="border-b border-theme-tertiary py-4 px-4 flex items-center justify-between flex-shrink-0">
-    <h1 class="text-2xl md:text-3xl font-bold text-theme-primary-text">Blog Editor</h1>
-    <button
-      (click)="onAdd()"
-      class="bg-accent hover:bg-accent-muted active:bg-accent text-white font-semibold py-2 px-4 rounded flex items-center gap-2 transition-colors cursor-pointer"
-      aria-label="Add new blog"
-    >
-      <i class="fa-solid fa-plus"></i>
-      <span>Add</span>
-    </button>
-  </div>
+  <app-blog-editor-header (add)="onAdd()"></app-blog-editor-header>
+
   <div
     class="flex-1 overflow-auto scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
   >

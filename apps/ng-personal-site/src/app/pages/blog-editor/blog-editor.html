@@ -1,3 +1,11 @@
 <div class="w-full h-full bg-theme-primary p-3 sm:p-4 md:p-6 lg:p-9 overflow-hidden">
-  <app-blog-editor-card class="block w-full h-full min-w-0 min-h-0"></app-blog-editor-card>
+  <app-blog-editor-card (add)="openModal()"></app-blog-editor-card>
 </div>
+
+<app-modal
+  [isOpen]="isModalOpen()"
+  [title]="'Add New Blog'"
+  (close)="closeModal()"
+>
+  <p class="text-theme-primary-text">Blog form will go here...</p>
+</app-modal>

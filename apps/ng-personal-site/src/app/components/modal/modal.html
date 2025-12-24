@@ -1,0 +1,34 @@
+@if (isVisible()) {
+<div
+  class="modal-backdrop flex items-start justify-center p-4"
+  [class.closing]="isClosing()"
+  (click)="onBackdropClick($event)"
+>
+  <div
+    class="modal-container bg-theme-secondary border border-theme-tertiary rounded-lg flex flex-col mt-[15dvh]"
+    [class.closing]="isClosing()"
+  >
+    <!-- Modal Header -->
+    <div
+      class="border-b border-theme-tertiary py-2 px-6 flex items-center justify-between flex-shrink-0"
+    >
+      <h2 class="text-xl font-semibold text-theme-primary-text m-0">{{ title() }}</h2>
+      <button
+        (click)="onClose()"
+        class="modal-close-btn text-theme-primary-text hover:text-accent-muted active:text-accent bg-transparent border-none text-2xl cursor-pointer p-1 leading-none transition-colors flex items-center justify-center w-8 h-8"
+        aria-label="Close modal"
+        title="Close"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Modal Content -->
+    <div
+      class="p-6 overflow-y-auto flex-1 min-h-0 scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+}
