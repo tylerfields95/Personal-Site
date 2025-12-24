@@ -2,10 +2,8 @@
   <app-blog-editor-card (add)="openModal()"></app-blog-editor-card>
 </div>
 
-<app-modal
-  [isOpen]="isModalOpen()"
-  [title]="'Add New Blog'"
-  (close)="closeModal()"
->
-  <p class="text-theme-primary-text">Blog form will go here...</p>
+<app-modal [isOpen]="isModalOpen()" [title]="'Add New Blog'" (close)="closeModal()">
+  <div class="h-[70dvh]">
+    <app-markdown-editor [(content)]="blogContent"></app-markdown-editor>
+  </div>
 </app-modal>

@@ -1,0 +1,7 @@
+.editor-textarea {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.editor-textarea::placeholder {
+  color: var(--quinary-color);
+}
