@@ -10,6 +10,7 @@ import { BlogEditorHeader } from '../blog-editor-header/blog-editor-header';
 })
 export class BlogEditorCard {
   readonly add = output<void>();
+  readonly edit = output<number>();
 
   // Computed signal that derives from the service's blogs signal
   public readonly blogs = computed(() => this.blogService.blogs());
@@ -35,8 +36,7 @@ export class BlogEditorCard {
    * Handle edit action for a blog
    */
   public onEdit(index: number): void {
-    console.log('Edit blog at index:', index);
-    // TODO: Navigate to edit view
+    this.edit.emit(index);
   }
 
   /**

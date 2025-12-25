@@ -1,11 +1,10 @@
 import { Component, Signal, signal, WritableSignal } from '@angular/core';
 import { Blog } from '../../components/blog/blog';
 import { Blogbody, BlogContent, blogImage, ImagePosition } from '../../models';
-import { ToggleSwitch } from '../../components/toggle-switch/toggle-switch';
 
 @Component({
   selector: 'app-home',
-  imports: [Blog, ToggleSwitch],
+  imports: [Blog],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

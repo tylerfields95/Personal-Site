@@ -1,24 +1,12 @@
 <div class="w-full h-full bg-theme-primary p-3 sm:p-4 md:p-6 lg:p-9 overflow-hidden">
-  <app-blog-editor-card (add)="openModal()"></app-blog-editor-card>
+  <app-blog-editor-card (add)="openModal()" (edit)="openEditModal($event)"></app-blog-editor-card>
 </div>
 
-<app-modal [isOpen]="isModalOpen()" [title]="'Add New Blog'" (close)="closeModal()">
-  <div class="flex flex-col gap-4 h-[70dvh]">
-    <!-- Date Picker Section -->
-    <div class="flex-shrink-0">
-      <label class="block text-sm font-medium text-theme-primary-text mb-2">Publish Date</label>
-      <ngxsmk-datepicker
-        [mode]="'single'"
-        [value]="publishDate()"
-        (valueChange)="onDateChange($event)"
-        [classes]="datePickerClasses()"
-        placeholder="Select publish date"
-      ></ngxsmk-datepicker>
-    </div>
-
-    <!-- Markdown Editor Section -->
-    <div class="flex-1 min-h-0">
-      <app-markdown-editor [(content)]="blogContent"></app-markdown-editor>
-    </div>
-  </div>
+<app-modal [isOpen]="isModalOpen()" [title]="modalTitle" (close)="closeModal()">
+  <app-blog-editor-form
+    [initialData]="editingBlogData()"
+    [isEditing]="isEditing"
+    (formSubmit)="onFormSubmit($event)"
+    (formCancel)="onFormCancel()"
+  ></app-blog-editor-form>
 </app-modal>
