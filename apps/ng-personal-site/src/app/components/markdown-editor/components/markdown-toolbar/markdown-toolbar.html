@@ -1,0 +1,176 @@
+<div class="border-b border-theme-tertiary p-2 flex items-center gap-2 flex-wrap flex-shrink-0">
+  @if (!isPreview()) {
+  <!-- Edit Mode Toolbar -->
+  <div class="flex items-center gap-1">
+    <button
+      (click)="onHeading1()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Heading 1"
+      aria-label="Heading 1"
+    >
+      <i class="fa-solid fa-heading text-sm"></i>
+      <span class="text-xs font-medium">1</span>
+    </button>
+    <button
+      (click)="onHeading2()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Heading 2"
+      aria-label="Heading 2"
+    >
+      <i class="fa-solid fa-heading text-sm"></i>
+      <span class="text-xs font-medium">2</span>
+    </button>
+    <button
+      (click)="onHeading3()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Heading 3"
+      aria-label="Heading 3"
+    >
+      <i class="fa-solid fa-heading text-sm"></i>
+      <span class="text-xs font-medium">3</span>
+    </button>
+  </div>
+
+  <div class="w-px h-6 bg-theme-tertiary"></div>
+
+  <div class="flex items-center gap-1">
+    <button
+      (click)="onBold()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Bold"
+      aria-label="Bold"
+    >
+      <i class="fa-solid fa-bold text-sm"></i>
+    </button>
+    <button
+      (click)="onItalic()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Italic"
+      aria-label="Italic"
+    >
+      <i class="fa-solid fa-italic text-sm"></i>
+    </button>
+    <button
+      (click)="onStrikethrough()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Strikethrough"
+      aria-label="Strikethrough"
+    >
+      <i class="fa-solid fa-strikethrough text-sm"></i>
+    </button>
+  </div>
+
+  <div class="w-px h-6 bg-theme-tertiary"></div>
+
+  <div class="flex items-center gap-1">
+    <button
+      (click)="onCode()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Inline Code"
+      aria-label="Code"
+    >
+      <i class="fa-solid fa-code text-sm"></i>
+    </button>
+    <button
+      (click)="onCodeBlock()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Code Block"
+      aria-label="Code Block"
+    >
+      <i class="fa-solid fa-file-code text-sm"></i>
+    </button>
+  </div>
+
+  <div class="w-px h-6 bg-theme-tertiary"></div>
+
+  <div class="flex items-center gap-1">
+    <button
+      (click)="onQuote()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Quote"
+      aria-label="Quote"
+    >
+      <i class="fa-solid fa-quote-left text-sm"></i>
+    </button>
+    <button
+      (click)="onUnorderedList()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Bullet List"
+      aria-label="Bullet List"
+    >
+      <i class="fa-solid fa-list-ul text-sm"></i>
+    </button>
+    <button
+      (click)="onOrderedList()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Numbered List"
+      aria-label="Numbered List"
+    >
+      <i class="fa-solid fa-list-ol text-sm"></i>
+    </button>
+    <button
+      (click)="onTaskList()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Task List"
+      aria-label="Task List"
+    >
+      <i class="fa-solid fa-list-check text-sm"></i>
+    </button>
+  </div>
+
+  <div class="w-px h-6 bg-theme-tertiary"></div>
+
+  <div class="flex items-center gap-1">
+    <button
+      (click)="onLink()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Link"
+      aria-label="Link"
+    >
+      <i class="fa-solid fa-link text-sm"></i>
+    </button>
+    <button
+      (click)="onImage()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Image"
+      aria-label="Image"
+    >
+      <i class="fa-solid fa-image text-sm"></i>
+    </button>
+    <button
+      (click)="onTable()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Table"
+      aria-label="Table"
+    >
+      <i class="fa-solid fa-table text-sm"></i>
+    </button>
+    <button
+      (click)="onHorizontalRule()"
+      class="flex items-center justify-center gap-1 p-2 min-w-8 h-8 bg-transparent border border-transparent rounded text-theme-primary-text cursor-pointer transition-all hover:bg-theme-tertiary hover:border-theme-quaternary active:bg-theme-quaternary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm"
+      title="Horizontal Rule"
+      aria-label="Horizontal Rule"
+    >
+      <i class="fa-solid fa-minus text-sm"></i>
+    </button>
+  </div>
+
+  <div class="w-px h-6 bg-theme-tertiary hidden md:block"></div>
+  }
+
+  <!-- Toggle Button (always visible) -->
+  <button
+    (click)="onTogglePreview()"
+    class="flex items-center justify-center gap-1 p-2 px-3 h-8 bg-accent text-white border border-accent rounded font-semibold cursor-pointer transition-all hover:bg-accent-muted hover:border-accent-muted active:bg-accent active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 text-sm ml-auto"
+    [title]="isPreview() ? 'Edit' : 'Preview'"
+    [aria-label]="isPreview() ? 'Edit' : 'Preview'"
+  >
+    @if (isPreview()) {
+    <i class="fa-solid fa-pen text-sm"></i>
+    <span class="hidden sm:inline">Edit</span>
+    } @else {
+    <i class="fa-solid fa-eye text-sm"></i>
+    <span class="hidden sm:inline">Preview</span>
+    }
+  </button>
+</div>

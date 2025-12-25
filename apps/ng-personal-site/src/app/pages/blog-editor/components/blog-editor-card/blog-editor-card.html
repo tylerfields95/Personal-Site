@@ -1,0 +1,83 @@
+<div class="w-full h-full bg-theme-secondary border border-theme-tertiary flex flex-col">
+  <app-blog-editor-header
+    [isPreviewMode]="isPreviewMode()"
+    (add)="onAdd()"
+    (back)="onBackFromPreview()"
+  ></app-blog-editor-header>
+
+  <div
+    class="flex-1 overflow-auto scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
+  >
+    @if (isPreviewMode() && previewBlog()) {
+      <app-blog [blogData]="previewBlog()"></app-blog>
+    } @else {
+    <table class="w-full border-collapse">
+      <thead>
+        <tr class="border-b border-theme-tertiary">
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Actions</th>
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Title</th>
+          <th class="hidden md:table-cell text-left p-3 font-semibold text-theme-primary-text">
+            Subtitle
+          </th>
+          <th class="hidden md:table-cell text-left p-3 font-semibold text-theme-primary-text">
+            Author
+          </th>
+          <th class="text-left p-3 font-semibold text-theme-primary-text">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (blog of blogs(); track blog.header; let i = $index) {
+        <tr class="border-b border-theme-tertiary hover:bg-theme-tertiary transition-colors">
+          <td class="p-3 whitespace-nowrap">
+            <div class="flex gap-4">
+              <button
+                (click)="onPreview(i)"
+                class="text-xl text-theme-primary-text hover:text-accent-muted active:text-accent transition-colors cursor-pointer"
+                aria-label="Preview blog"
+                title="Preview"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+              <button
+                (click)="onEdit(i)"
+                class="text-xl text-theme-primary-text hover:text-accent-muted active:text-accent transition-colors cursor-pointer"
+                aria-label="Edit blog"
+                title="Edit"
+              >
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <app-confirmation-popover
+                [message]="'Are you sure you want to delete this blog?'"
+                [confirmText]="'Delete'"
+                [cancelText]="'Cancel'"
+                [position]="PopoverPosition.Right"
+                [variant]="PopoverVariant.Danger"
+                (confirm)="onDelete(i)"
+              >
+                <button
+                  class="text-xl text-theme-primary-text hover:text-red-500 active:text-red-700 transition-colors cursor-pointer"
+                  aria-label="Delete blog"
+                  title="Delete"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </app-confirmation-popover>
+            </div>
+          </td>
+          <td class="p-3 text-theme-primary-text">{{ blog.header }}</td>
+          <td class="hidden md:table-cell p-3 text-theme-secondary-text">{{ blog.subHeader }}</td>
+          <td class="hidden md:table-cell p-3 text-theme-secondary-text">{{ blog.author }}</td>
+          <td class="p-3 text-theme-secondary-text whitespace-nowrap">
+            {{ formatDate(blog.createdOn) }}
+          </td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="5" class="p-6 text-center text-theme-secondary-text">No blogs found.</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div>
+</div>

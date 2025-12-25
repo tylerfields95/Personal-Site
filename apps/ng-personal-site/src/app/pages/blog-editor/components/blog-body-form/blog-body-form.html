@@ -1,0 +1,100 @@
+<div class="border border-theme-tertiary rounded-lg bg-theme-secondary overflow-hidden">
+  <!-- Collapsed Header -->
+  <div
+    class="flex items-center justify-between p-4 cursor-pointer hover:bg-theme-tertiary transition-all"
+    (click)="toggleExpanded()"
+  >
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-3">
+        <svg class="w-4 h-4 text-theme-secondary-text flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="6" />
+        </svg>
+        <div class="flex-1 min-w-0">
+          <h3 class="text-theme-primary-text font-medium truncate">{{ header }}</h3>
+          <p *ngIf="subHeader" class="text-theme-secondary-text text-sm truncate">
+            {{ subHeader }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <app-confirmation-popover
+        [message]="'Are you sure you want to remove this section?'"
+        [confirmText]="'Remove'"
+        [cancelText]="'Cancel'"
+        [position]="PopoverPosition.TopRight"
+        [variant]="PopoverVariant.Danger"
+        (confirm)="onRemove()"
+      >
+        <button
+          type="button"
+          class="px-3 py-1.5 text-sm text-red-500 hover:bg-red-500/10 rounded transition-all cursor-pointer flex items-center gap-1.5"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            />
+          </svg>
+          Remove
+        </button>
+      </app-confirmation-popover>
+      <svg
+        class="w-5 h-5 text-theme-secondary-text transition-transform"
+        [class.rotate-180]="isExpanded()"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Expanded Form -->
+  <div *ngIf="isExpanded()" class="border-t border-theme-tertiary">
+    <form [formGroup]="bodyFormGroup" class="p-4 space-y-4">
+      <!-- Header Field -->
+      <div>
+        <label class="block text-sm font-medium text-theme-primary-text mb-2">
+          Section Header
+        </label>
+        <input
+          type="text"
+          formControlName="header"
+          autocomplete="off"
+          class="w-full px-3 py-2 text-sm rounded-lg border border-theme-tertiary !bg-theme-secondary text-theme-primary-text placeholder:text-theme-secondary-text focus:outline-none focus:ring-2 focus:ring-accent transition-all"
+          placeholder="Enter section header"
+        />
+      </div>
+
+      <!-- Subheader Field -->
+      <div>
+        <label class="block text-sm font-medium text-theme-primary-text mb-2">
+          Section Subheader
+        </label>
+        <input
+          type="text"
+          formControlName="subHeader"
+          autocomplete="off"
+          class="w-full px-3 py-2 text-sm rounded-lg border border-theme-tertiary !bg-theme-secondary text-theme-primary-text placeholder:text-theme-secondary-text focus:outline-none focus:ring-2 focus:ring-accent transition-all"
+          placeholder="Enter section subheader"
+        />
+      </div>
+
+      <!-- Body Field with Markdown Editor -->
+      <div>
+        <label class="block text-sm font-medium text-theme-primary-text mb-2">
+          Section Content
+        </label>
+        <app-markdown-editor
+          [content]="bodyFormGroup.get('body')?.value || ''"
+          (contentChange)="bodyFormGroup.get('body')?.setValue($event)"
+        />
+      </div>
+    </form>
+  </div>
+</div>

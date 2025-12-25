@@ -1,0 +1,47 @@
+<span class="inline-block">
+  <!-- Trigger Content (ng-content for the button/trigger element) -->
+  <span #trigger (click)="open(); $event.stopPropagation()" class="inline-block">
+    <ng-content></ng-content>
+  </span>
+
+  <!-- Popover -->
+  @if (isOpen()) {
+    <!-- Backdrop to close on outside click -->
+    <div
+      class="fixed inset-0 z-[1100]"
+      (click)="close()"
+    ></div>
+
+    <!-- Popover Content -->
+    <div
+      class="fixed z-[1200] bg-theme-secondary border border-theme-tertiary rounded-lg shadow-lg p-3 min-w-[200px]"
+      [ngStyle]="popoverStyles()"
+      (click)="$event.stopPropagation()"
+    >
+      <!-- Message -->
+      <p class="text-sm text-theme-primary-text mb-3 font-medium">{{ message() }}</p>
+
+      <!-- Actions -->
+      <div class="flex gap-2 justify-end">
+        <button
+          type="button"
+          (click)="onCancel()"
+          class="px-3 py-1.5 text-xs border border-theme-tertiary text-theme-primary-text rounded hover:bg-theme-tertiary transition-all cursor-pointer"
+        >
+          {{ cancelText() }}
+        </button>
+        <button
+          type="button"
+          (click)="onConfirm()"
+          class="px-3 py-1.5 text-xs text-white rounded hover:opacity-90 transition-all cursor-pointer"
+          [ngClass]="{
+            'bg-red-500': variant() === PopoverVariant.Danger,
+            'bg-accent': variant() !== PopoverVariant.Danger
+          }"
+        >
+          {{ confirmText() }}
+        </button>
+      </div>
+    </div>
+  }
+</span>

@@ -15,6 +15,16 @@ kanban-plugin: board
 	#DB #infrastructure
 - [ ] Figure out the best way to deal with images
 	#infrastructure
+- [ ] Custom Grid Component
+- [ ] Generic Card Component
+- [ ] NestJS backend?
+- [ ] Unit Testing
+- [ ] Blog editor form modal doesnt reset blog body content sections
+	#Bug
+- [ ] Blog Editor add form doesnt clear on modal close/cancel.
+	#Bug
+- [ ] Bottom padding missing when body section is expanded in blog editor modal
+	#Bug
 
 
 ## Active
@@ -24,6 +34,9 @@ kanban-plugin: board
 ## Done
 
 **Complete**
+- [x] [[Blog Editor]] ✅ 2025-12-25
+	#UI #Feature
+- [x] Blog-add-edit-form ✅ 2025-12-25
 - [x] Add Theme Toggle to mobile navbar ✅ 2025-12-18
 	#UI
 - [x] Android navigation footer panel is themed incorrectly ✅ 2025-12-18
@@ -75,6 +88,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false],"table-sizing":{"card":272}}
+{"kanban-plugin":"board","list-collapse":[false,false,false,true],"table-sizing":{"card":272}}
 ```
 %%

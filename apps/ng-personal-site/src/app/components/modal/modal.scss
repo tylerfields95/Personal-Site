@@ -1,0 +1,128 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+
+  &.closing {
+    animation: fadeOut 0.2s ease-out;
+  }
+}
+
+.modal-container {
+  max-width: 90dvw;
+  max-height: 90dvh;
+  width: 50dvw;
+  min-width: 20dvw;
+  box-shadow: 0 1dvh 2dvh rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-out;
+
+  &.closing {
+    animation: slideOut 0.2s ease-out;
+  }
+}
+
+.modal-close-btn {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Modal footer - hide if empty
+.modal-footer:empty {
+  display: none;
+}
+
+// Themed scrollbar for modal content
+.modal-container {
+  // Webkit browsers (Chrome, Safari, Edge)
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--tertiary-color);
+    border-radius: 6px;
+    border: 2px solid var(--secondary-color);
+
+    &:hover {
+      background: var(--quaternary-color);
+    }
+
+    &:active {
+      background: var(--quinary-color);
+    }
+  }
+
+  // Firefox
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--tertiary-color) var(--secondary-color);
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2dvh) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-2dvh) scale(0.95);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .modal-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: 95dvh;
+  }
+}
