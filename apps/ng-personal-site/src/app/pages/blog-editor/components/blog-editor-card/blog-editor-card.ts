@@ -1,11 +1,13 @@
-import { Component, computed, output } from '@angular/core';
+import { Component, computed, output, signal } from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
 import { BlogEditorHeader } from '../blog-editor-header/blog-editor-header';
 import { ConfirmationPopover, PopoverPosition, PopoverVariant } from '../../../../components/confirmation-popover/confirmation-popover';
+import { Blog } from '../../../../components/blog/blog';
+import { BlogContent } from '../../../../models/blogContent';
 
 @Component({
   selector: 'app-blog-editor-card',
-  imports: [BlogEditorHeader, ConfirmationPopover],
+  imports: [BlogEditorHeader, ConfirmationPopover, Blog],
   templateUrl: './blog-editor-card.html',
   styleUrl: './blog-editor-card.scss',
 })
@@ -16,6 +18,10 @@ export class BlogEditorCard {
   // Expose enums to template
   readonly PopoverPosition = PopoverPosition;
   readonly PopoverVariant = PopoverVariant;
+
+  // Preview state
+  readonly isPreviewMode = signal(false);
+  readonly previewBlog = signal<BlogContent | undefined>(undefined);
 
   // Computed signal that derives from the service's blogs signal
   public readonly blogs = computed(() => this.blogService.blogs());
@@ -33,8 +39,19 @@ export class BlogEditorCard {
    * Handle preview action for a blog
    */
   public onPreview(index: number): void {
-    console.log('Preview blog at index:', index);
-    // TODO: Navigate to preview view
+    const blog = this.blogs()[index];
+    if (blog) {
+      this.previewBlog.set(blog);
+      this.isPreviewMode.set(true);
+    }
+  }
+
+  /**
+   * Handle back from preview
+   */
+  public onBackFromPreview(): void {
+    this.isPreviewMode.set(false);
+    this.previewBlog.set(undefined);
   }
 
   /**

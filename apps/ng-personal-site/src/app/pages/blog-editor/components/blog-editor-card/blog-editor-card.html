@@ -1,9 +1,16 @@
 <div class="w-full h-full bg-theme-secondary border border-theme-tertiary flex flex-col">
-  <app-blog-editor-header (add)="onAdd()"></app-blog-editor-header>
+  <app-blog-editor-header
+    [isPreviewMode]="isPreviewMode()"
+    (add)="onAdd()"
+    (back)="onBackFromPreview()"
+  ></app-blog-editor-header>
 
   <div
     class="flex-1 overflow-auto scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
   >
+    @if (isPreviewMode() && previewBlog()) {
+      <app-blog [blogData]="previewBlog()"></app-blog>
+    } @else {
     <table class="w-full border-collapse">
       <thead>
         <tr class="border-b border-theme-tertiary">
@@ -71,5 +78,6 @@
         }
       </tbody>
     </table>
+    }
   </div>
 </div>
