@@ -1,4 +1,4 @@
-import { Component, signal, model, ViewChild, ElementRef } from '@angular/core';
+import { Component, signal, model, ViewChild, ElementRef, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownToolbar } from './components/markdown-toolbar/markdown-toolbar';
@@ -14,6 +14,7 @@ export class MarkdownEditor {
 
   readonly content = model<string>('');
   readonly isPreview = signal(false);
+  readonly minHeight = input<string>('50dvh');
 
   /**
    * Toggle between edit and preview mode

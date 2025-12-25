@@ -39,14 +39,22 @@
               >
                 <i class="fa-solid fa-pen-to-square"></i>
               </button>
-              <button
-                (click)="onDelete(i)"
-                class="text-xl text-theme-primary-text hover:text-red-500 active:text-red-700 transition-colors cursor-pointer"
-                aria-label="Delete blog"
-                title="Delete"
+              <app-confirmation-popover
+                [message]="'Are you sure you want to delete this blog?'"
+                [confirmText]="'Delete'"
+                [cancelText]="'Cancel'"
+                [position]="PopoverPosition.Right"
+                [variant]="PopoverVariant.Danger"
+                (confirm)="onDelete(i)"
               >
-                <i class="fa-solid fa-trash"></i>
-              </button>
+                <button
+                  class="text-xl text-theme-primary-text hover:text-red-500 active:text-red-700 transition-colors cursor-pointer"
+                  aria-label="Delete blog"
+                  title="Delete"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </app-confirmation-popover>
             </div>
           </td>
           <td class="p-3 text-theme-primary-text">{{ blog.header }}</td>

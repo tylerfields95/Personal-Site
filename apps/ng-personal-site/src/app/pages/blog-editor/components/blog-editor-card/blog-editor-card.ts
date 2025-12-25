@@ -1,16 +1,21 @@
 import { Component, computed, output } from '@angular/core';
 import { BlogService } from '../../../../services/blog.service';
 import { BlogEditorHeader } from '../blog-editor-header/blog-editor-header';
+import { ConfirmationPopover, PopoverPosition, PopoverVariant } from '../../../../components/confirmation-popover/confirmation-popover';
 
 @Component({
   selector: 'app-blog-editor-card',
-  imports: [BlogEditorHeader],
+  imports: [BlogEditorHeader, ConfirmationPopover],
   templateUrl: './blog-editor-card.html',
   styleUrl: './blog-editor-card.scss',
 })
 export class BlogEditorCard {
   readonly add = output<void>();
   readonly edit = output<number>();
+
+  // Expose enums to template
+  readonly PopoverPosition = PopoverPosition;
+  readonly PopoverVariant = PopoverVariant;
 
   // Computed signal that derives from the service's blogs signal
   public readonly blogs = computed(() => this.blogService.blogs());
@@ -43,9 +48,7 @@ export class BlogEditorCard {
    * Handle delete action for a blog
    */
   public onDelete(index: number): void {
-    if (confirm('Are you sure you want to delete this blog?')) {
-      this.blogService.deleteBlog(index);
-    }
+    this.blogService.deleteBlog(index);
   }
 
   /**

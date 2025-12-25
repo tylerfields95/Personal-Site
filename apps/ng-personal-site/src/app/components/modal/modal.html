@@ -24,8 +24,13 @@
     </div>
 
     <!-- Modal Content -->
-    <div class="p-6 overflow-visible flex-1 min-h-0">
+    <div class="p-6 overflow-y-auto flex-1 min-h-0">
       <ng-content></ng-content>
+    </div>
+
+    <!-- Modal Footer (optional) -->
+    <div class="modal-footer border-t border-theme-tertiary p-4 flex-shrink-0 overflow-visible">
+      <ng-content select="[modal-footer]"></ng-content>
     </div>
   </div>
 </div>

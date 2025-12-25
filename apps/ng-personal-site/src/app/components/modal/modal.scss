@@ -39,6 +39,44 @@
   }
 }
 
+// Modal footer - hide if empty
+.modal-footer:empty {
+  display: none;
+}
+
+// Themed scrollbar for modal content
+.modal-container {
+  // Webkit browsers (Chrome, Safari, Edge)
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--tertiary-color);
+    border-radius: 6px;
+    border: 2px solid var(--secondary-color);
+
+    &:hover {
+      background: var(--quaternary-color);
+    }
+
+    &:active {
+      background: var(--quinary-color);
+    }
+  }
+
+  // Firefox
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--tertiary-color) var(--secondary-color);
+  }
+}
+
 // Animations
 @keyframes fadeIn {
   from {

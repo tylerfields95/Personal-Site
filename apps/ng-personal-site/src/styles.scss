@@ -78,6 +78,30 @@
               border-color 300ms ease-in-out;
 }
 
+/* Override browser autofill styles to maintain theme consistency across all inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-internal-autofill-selected {
+  /* Use box-shadow trick to override autofill background color */
+  -webkit-box-shadow: 0 0 0 30px var(--secondary-color) inset !important;
+  box-shadow: 0 0 0 30px var(--secondary-color) inset !important;
+  -webkit-text-fill-color: var(--primary-text) !important;
+  color: var(--primary-text) !important;
+  caret-color: var(--primary-text) !important;
+  background-color: var(--secondary-color) !important;
+}
+
+/* Use very long transition to effectively prevent autofill color changes */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 600000s ease-in-out 0s,
+              color 600000s ease-in-out 0s !important;
+}
+
 /* Tailwind v4 tokens: utilities like bg-*, text-*, border-* read these */
 @layer base {
   :root {

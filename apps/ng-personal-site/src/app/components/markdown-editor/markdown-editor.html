@@ -1,4 +1,4 @@
-<div class="bg-theme-secondary border border-theme-tertiary rounded-lg flex flex-col min-h-[50dvh] h-full">
+<div class="bg-theme-secondary border border-theme-tertiary rounded-lg flex flex-col h-full" [style.min-height]="minHeight()">
   <!-- Toolbar -->
   <app-markdown-toolbar
     [isPreview]="isPreview()"
@@ -22,20 +22,20 @@
   ></app-markdown-toolbar>
 
   <!-- Content Area -->
-  <div class="flex-1 min-h-0 overflow-hidden">
+  <div class="flex-1 min-h-0 flex flex-col">
     @if (!isPreview()) {
     <!-- Edit Mode -->
     <textarea
       #textarea
       [(ngModel)]="content"
-      class="editor-textarea w-full h-full p-4 bg-theme-secondary text-theme-primary-text border-none outline-none resize-none text-sm leading-relaxed"
+      class="editor-textarea flex-1 w-full p-4 bg-theme-secondary text-theme-primary-text border-none outline-none resize-none text-sm leading-relaxed overflow-y-auto"
       placeholder="Write your markdown here..."
       spellcheck="true"
     ></textarea>
     } @else {
     <!-- Preview Mode -->
     <div
-      class="w-full h-full p-6 overflow-y-auto bg-theme-secondary scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
+      class="flex-1 w-full p-6 overflow-y-auto bg-theme-secondary scrollbar-thin scrollbar-thumb-theme-quaternary scrollbar-thumb-rounded-full scrollbar-track-theme-tertiary"
     >
       <markdown [data]="content()" class="prose prose-theme max-w-none"></markdown>
     </div>

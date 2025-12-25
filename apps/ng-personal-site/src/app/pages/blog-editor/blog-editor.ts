@@ -4,15 +4,21 @@ import { Modal } from '../../components/modal/modal';
 import { BlogEditorForm, BlogFormData } from './components/blog-editor-form/blog-editor-form';
 import { BlogService } from '../../services/blog.service';
 import { BlogContent } from '../../models/blogContent';
+import { Blogbody } from '../../models/blogBody';
+import { ConfirmationPopover, PopoverPosition, PopoverVariant } from '../../components/confirmation-popover/confirmation-popover';
 
 @Component({
   selector: 'app-blog-editor',
-  imports: [BlogEditorCard, Modal, BlogEditorForm],
+  imports: [BlogEditorCard, Modal, BlogEditorForm, ConfirmationPopover],
   templateUrl: './blog-editor.html',
   styleUrl: './blog-editor.scss',
 })
 export class BlogEditor {
   private readonly blogService = inject(BlogService);
+
+  // Expose enums to template
+  readonly PopoverPosition = PopoverPosition;
+  readonly PopoverVariant = PopoverVariant;
 
   isModalOpen = signal(false);
   editingBlogIndex = signal<number | null>(null);
@@ -32,6 +38,11 @@ export class BlogEditor {
         header: blog.header,
         subHeader: blog.subHeader,
         author: blog.author,
+        bodySections: blog.body?.map(section => ({
+          header: section.header,
+          subHeader: section.subHeader,
+          body: section.body,
+        })) || [],
       });
       this.isModalOpen.set(true);
     }
@@ -56,8 +67,15 @@ export class BlogEditor {
         updatedBlog.author = formData.author;
         updatedBlog.createdOn = existingBlog.createdOn; // Keep original created date
         updatedBlog.lastModifiedOn = new Date();
-        updatedBlog.body = existingBlog.body; // Keep existing body
         updatedBlog.headerImages = existingBlog.headerImages; // Keep existing images
+
+        // Convert form data to Blogbody objects
+        updatedBlog.body = formData.bodySections.map(section => new Blogbody({
+          header: section.header,
+          subHeader: section.subHeader,
+          body: section.body,
+          blogImages: [], // Images not handled yet
+        }));
 
         this.blogService.updateBlog(editIndex, updatedBlog);
       }
@@ -69,7 +87,14 @@ export class BlogEditor {
       newBlog.author = formData.author;
       newBlog.createdOn = new Date(); // Set created date to now
       newBlog.lastModifiedOn = new Date();
-      newBlog.body = [];
+
+      // Convert form data to Blogbody objects
+      newBlog.body = formData.bodySections.map(section => new Blogbody({
+        header: section.header,
+        subHeader: section.subHeader,
+        body: section.body,
+        blogImages: [], // Images not handled yet
+      }));
 
       this.blogService.addBlog(newBlog);
     }
