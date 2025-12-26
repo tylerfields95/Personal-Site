@@ -11,21 +11,14 @@
             "id": "f15b20f9cb117b29",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Kanban.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    true
-                  ]
-                }
+                "file": "Documentation/A note on UI components.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "Kanban"
+              "icon": "lucide-file",
+              "title": "A note on UI components"
             }
           }
         ]
@@ -60,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#cloud",
+                "query": "tag:#Archetecture",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -180,8 +174,9 @@
   },
   "active": "f15b20f9cb117b29",
   "lastOpenFiles": [
-    "Tasks/Blog Editor.md",
     "Kanban.md",
+    "Documentation/A note on UI components.md",
+    "Tasks/Blog Editor.md",
     "Documentation/Deployment-Guide.md",
     "Deployment-Guide.md",
     "Deployment-Guide.md.tmp.56968.1765922419920",
