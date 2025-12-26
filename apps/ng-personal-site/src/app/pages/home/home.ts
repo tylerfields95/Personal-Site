@@ -1,6 +1,7 @@
-import { Component, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, Signal, signal, WritableSignal, inject, OnInit } from '@angular/core';
 import { Blog } from '../../components/blog/blog';
 import { Blogbody, BlogContent, blogImage, ImagePosition } from '../../models';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,21 @@ import { Blogbody, BlogContent, blogImage, ImagePosition } from '../../models';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnInit {
+  private apiService = inject(ApiService);
   private readonly _blogData: WritableSignal<BlogContent> = signal(this.buildFakeBlogData());
   public readonly blogData: Signal<BlogContent> = this._blogData.asReadonly();
+
+  ngOnInit() {
+    this.apiService.getHello().subscribe({
+      next: (message) => {
+        console.log('API Response:', message);
+      },
+      error: (error) => {
+        console.error('API Error:', error);
+      }
+    });
+  }
 
   public buildFakeBlogData(): BlogContent {
     const blog = new BlogContent();
