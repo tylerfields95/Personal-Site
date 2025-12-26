@@ -25,6 +25,8 @@ kanban-plugin: board
 	#Bug
 - [ ] Bottom padding missing when body section is expanded in blog editor modal
 	#Bug
+- [ ] Everything in the body form should be optional. that way it can be anything.
+	#Bug
 
 
 ## Active
