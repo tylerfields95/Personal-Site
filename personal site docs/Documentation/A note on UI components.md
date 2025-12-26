@@ -5,3 +5,4 @@ I have made the decision to avoid using third party libraries when possible. I t
 #### Current Third party UI packages
 * [ngx-markdown](https://github.com/jfcere/ngx-markdown)
 * [ngxsmk-datepicker](https://github.com/NGXSMK/ngxsmk-datepicker)
+	* [documentation](https://ngxsmk.github.io/ngxsmk-datepicker/)
