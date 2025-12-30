@@ -6,5 +6,7 @@ dist/
 *.log
 .vs
 infra/.env
+database/.env
+api/**/.env
 bin/
 obj/
