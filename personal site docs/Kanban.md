@@ -17,7 +17,6 @@ kanban-plugin: board
 	#infrastructure
 - [ ] Custom Grid Component
 - [ ] Generic Card Component
-- [ ] NestJS backend?
 - [ ] Unit Testing
 - [ ] Blog editor form modal doesnt reset blog body content sections
 	#Bug
@@ -31,6 +30,7 @@ kanban-plugin: board
 
 ## Active
 
+- [ ] [[set up and connect to postgresDB]]
 
 
 ## Done
